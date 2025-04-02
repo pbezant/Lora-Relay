@@ -1,0 +1,5701 @@
+[
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:55:38.247377567Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "oD1I/SeGCQADMQD/AQYBa1c0jw==",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_DOWN"
+        },
+        "mic": "a1c0jw==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 9,
+            "f_opts": "AzEA/wEG"
+          },
+          "f_port": 1,
+          "full_f_cnt": 9
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEMn6spkNGgwImfS1vwYQw/PphwMgqMqNto6paCoMCJn0tb8GEMDnlvkC"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "924500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "as:downlink:01JQVT936GRAV8JXVJ1VYC151S",
+        "gs:uplink:01JQVT9X6XVRCTC7GY9CN9VX7A",
+        "ns:transmission:01JQVT9XM7QYEQJC00J8A0PHSN",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:d1ba2ef3-85d8-4ea8-a1ac-0cb86d5b2583"
+      ]
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVT936GRAV8JXVJ1VYC151S",
+      "gs:uplink:01JQVT9X6XVRCTC7GY9CN9VX7A",
+      "ns:transmission:01JQVT9XM7QYEQJC00J8A0PHSN",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:d1ba2ef3-85d8-4ea8-a1ac-0cb86d5b2583"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT9XM7W89P8YDXN7JGB1MC"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:55:38.042754111Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVT9X6XVRCTC7GY9CN9VX7A"
+      ],
+      "received_at": "2025-04-02T17:55:38.036754432Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "f_port": 2,
+        "f_cnt": 5,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:55:37.791Z",
+            "timestamp": 3542924617,
+            "rssi": -63,
+            "channel_rssi": -63,
+            "snr": 9.8,
+            "frequency_offset": "-167",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEMn6spkNGgwImfS1vwYQw/PphwMgqMqNto6paCoMCJn0tb8GEMDnlvkC",
+            "channel_index": 2,
+            "gps_time": "2025-04-02T17:55:37.791Z",
+            "received_at": "2025-04-02T17:55:37.798242822Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "904300000",
+          "timestamp": 3542924617,
+          "time": "2025-04-02T17:55:37.791Z"
+        },
+        "received_at": "2025-04-02T17:55:37.822410725Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVT9X6XVRCTC7GY9CN9VX7A"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT9XDTPKMSV4D64CJ6W3GJ"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:55:38.035896321Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QD1I/SeABQAC+/jy4/La",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "8uPy2g==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 5
+          },
+          "f_port": 2,
+          "frm_payload": "+/g=",
+          "full_f_cnt": 5
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904300000",
+        "timestamp": 3542924617,
+        "time": "2025-04-02T17:55:37.791Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:55:37.791Z",
+          "timestamp": 3542924617,
+          "rssi": -63,
+          "channel_rssi": -63,
+          "snr": 9.8,
+          "frequency_offset": "-167",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEMn6spkNGgwImfS1vwYQw/PphwMgqMqNto6paCoMCJn0tb8GEMDnlvkC",
+          "channel_index": 2,
+          "gps_time": "2025-04-02T17:55:37.791Z",
+          "received_at": "2025-04-02T17:55:37.798242822Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:55:37.822410725Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVT9X6XVRCTC7GY9CN9VX7A"
+      ],
+      "device_channel_index": 10,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVT9X6XVRCTC7GY9CN9VX7A"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT9XDK34A5BAD2SHXPEJAD"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:55:37.520012222Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "oD1I/SeACAABYzg5Eg==",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_DOWN"
+        },
+        "mic": "Yzg5Eg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 8
+          },
+          "f_port": 1,
+          "full_f_cnt": 8
+        }
+      },
+      "request": {
+        "class": "CLASS_C",
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEPP+6IcMGgwI6PG1vwYQm63Q9gEguLKfjJ2gaCoMCOjxtb8GEICmzeoB"
+          }
+        ],
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "as:downlink:01JQVT936GRAV8JXVJ1VYC151S",
+        "ns:transmission:01JQVT9WXGZ17C52SRWE7D9565",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:d1ba2ef3-85d8-4ea8-a1ac-0cb86d5b2583"
+      ]
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVT936GRAV8JXVJ1VYC151S",
+      "ns:transmission:01JQVT9WXGZ17C52SRWE7D9565",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:d1ba2ef3-85d8-4ea8-a1ac-0cb86d5b2583"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT9WXG0PXR3WHPH578KQNS"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-02T17:55:11.187215303Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "decoded_payload": {
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQVT936GRAV8JXVJ1VYC151S",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:d1ba2ef3-85d8-4ea8-a1ac-0cb86d5b2583"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVT936GRAV8JXVJ1VYC151S",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:d1ba2ef3-85d8-4ea8-a1ac-0cb86d5b2583"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "EP5QAVEGGRCNLDWF6JMI4AHNJIPSL6XNSPMYSJQ"
+    },
+    "remote_ip": "99.189.75.121",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQVT936K227DX0V5VAZV85PQ"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-02T17:50:50.224323448Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "decoded_payload": {
+        "relay": 1,
+        "state": 0
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQVT14BENC56G8FPS3FY9X9S",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:01648df8-4420-4568-b2e2-1a2b548bdbdd"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVT14BENC56G8FPS3FY9X9S",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:01648df8-4420-4568-b2e2-1a2b548bdbdd"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "EP5QAVEGGRCNLDWF6JMI4AHNJIPSL6XNSPMYSJQ"
+    },
+    "remote_ip": "99.189.75.121",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQVT14BGMFB224F51VCKQKZ5"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:50:32.923286161Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SeGBgADMQD/AQbvW+Qn",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "71vkJw==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 6,
+            "f_opts": "AzEA/wEG"
+          },
+          "full_f_cnt": 6
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEPP+6IcMGgwI6PG1vwYQm63Q9gEguLKfjJ2gaCoMCOjxtb8GEICmzeoB"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "923900000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVT0K25KA5VF3ZE9WPJV31T",
+        "ns:downlink:01JQVT0KEVF62XTKH14VAQX2V2",
+        "ns:transmission:01JQVT0KEVJRYA5FKMY7MH9WT9"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVT0K25KA5VF3ZE9WPJV31T",
+      "ns:downlink:01JQVT0KEVF62XTKH14VAQX2V2",
+      "ns:transmission:01JQVT0KEVJRYA5FKMY7MH9WT9"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT0KEV8ZWNGJXT99SXT9HP"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:50:32.726177874Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVT0K25KA5VF3ZE9WPJV31T"
+      ],
+      "received_at": "2025-04-02T17:50:32.721887861Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "f_port": 2,
+        "f_cnt": 4,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:50:32.492Z",
+            "timestamp": 3237625715,
+            "rssi": -65,
+            "channel_rssi": -65,
+            "snr": 12.2,
+            "frequency_offset": "61",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEPP+6IcMGgwI6PG1vwYQm63Q9gEguLKfjJ2gaCoMCOjxtb8GEICmzeoB",
+            "channel_index": 1,
+            "gps_time": "2025-04-02T17:50:32.492Z",
+            "received_at": "2025-04-02T17:50:32.493741164Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "904100000",
+          "timestamp": 3237625715,
+          "time": "2025-04-02T17:50:32.492Z"
+        },
+        "received_at": "2025-04-02T17:50:32.518058474Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVT0K25KA5VF3ZE9WPJV31T"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT0K8P31SRG2904FNT3QNK"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:50:32.721449256Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QD1I/SegBAAC9fR4cP9g",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "eHD/YA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 4
+          },
+          "f_port": 2,
+          "frm_payload": "9fQ=",
+          "full_f_cnt": 4
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904100000",
+        "timestamp": 3237625715,
+        "time": "2025-04-02T17:50:32.492Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:50:32.492Z",
+          "timestamp": 3237625715,
+          "rssi": -65,
+          "channel_rssi": -65,
+          "snr": 12.2,
+          "frequency_offset": "61",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEPP+6IcMGgwI6PG1vwYQm63Q9gEguLKfjJ2gaCoMCOjxtb8GEICmzeoB",
+          "channel_index": 1,
+          "gps_time": "2025-04-02T17:50:32.492Z",
+          "received_at": "2025-04-02T17:50:32.493741164Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:50:32.518058474Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVT0K25KA5VF3ZE9WPJV31T"
+      ],
+      "device_channel_index": 9,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVT0K25KA5VF3ZE9WPJV31T"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT0K8HQ2WXS24AZYGH2S7A"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:50:32.226524958Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "oD1I/SeABQAB+eUKbA==",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_DOWN"
+        },
+        "mic": "+eUKbA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 5
+          },
+          "f_port": 1,
+          "full_f_cnt": 5
+        }
+      },
+      "request": {
+        "class": "CLASS_C",
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEICDn/YKGgsIt++1vwYQn7HmaiCAuK/iq5doKgsIt++1vwYQgODGWw=="
+          }
+        ],
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "as:downlink:01JQVSZK3K7MWC1QM01E93E2P6",
+        "ns:transmission:01JQVT0JS2JYNQ3WF51D74TEWD",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:900c81c4-f25a-4df0-a474-85774df6c2c4"
+      ]
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVSZK3K7MWC1QM01E93E2P6",
+      "ns:transmission:01JQVT0JS2JYNQ3WF51D74TEWD",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:900c81c4-f25a-4df0-a474-85774df6c2c4"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVT0JS28QR0FCY93NY9XYFS"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-02T17:49:59.798411183Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "decoded_payload": {
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQVSZK3K7MWC1QM01E93E2P6",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:900c81c4-f25a-4df0-a474-85774df6c2c4"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVSZK3K7MWC1QM01E93E2P6",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:900c81c4-f25a-4df0-a474-85774df6c2c4"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "EP5QAVEGGRCNLDWF6JMI4AHNJIPSL6XNSPMYSJQ"
+    },
+    "remote_ip": "99.189.75.121",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQVSZK3PECP4PGEDT01EKQTG"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:45:27.647558124Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "oD1I/SeGBAADMQD/AQYB87/0jg==",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_DOWN"
+        },
+        "mic": "87/0jg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 4,
+            "f_opts": "AzEA/wEG"
+          },
+          "f_port": 1,
+          "full_f_cnt": 4
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEICDn/YKGgsIt++1vwYQn7HmaiCAuK/iq5doKgsIt++1vwYQgODGWw=="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "927500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "as:downlink:01JQVSF1KJRHR3NF6QKTQBT8MP",
+        "gs:uplink:01JQVSQ8XRB1W654MM0J5A1NST",
+        "ns:transmission:01JQVSQ9AZB0S1ABQ908X6JNS9",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:148489bb-e895-42de-b0d1-a592cfd8bb73"
+      ]
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVSF1KJRHR3NF6QKTQBT8MP",
+      "gs:uplink:01JQVSQ8XRB1W654MM0J5A1NST",
+      "ns:transmission:01JQVSQ9AZB0S1ABQ908X6JNS9",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:148489bb-e895-42de-b0d1-a592cfd8bb73"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSQ9AZFMNGCM8CEPEZ2Q87"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:45:27.453536372Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSQ8XRB1W654MM0J5A1NST"
+      ],
+      "received_at": "2025-04-02T17:45:27.428760312Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "f_port": 2,
+        "f_cnt": 3,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:45:27.192Z",
+            "timestamp": 2932326784,
+            "rssi": -60,
+            "channel_rssi": -60,
+            "snr": 12.8,
+            "frequency_offset": "-303",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEICDn/YKGgsIt++1vwYQn7HmaiCAuK/iq5doKgsIt++1vwYQgODGWw==",
+            "channel_index": 7,
+            "gps_time": "2025-04-02T17:45:27.192Z",
+            "received_at": "2025-04-02T17:45:27.200527223Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905300000",
+          "timestamp": 2932326784,
+          "time": "2025-04-02T17:45:27.192Z"
+        },
+        "received_at": "2025-04-02T17:45:27.224872098Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSQ8XRB1W654MM0J5A1NST"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSQ94X2WE0ATBT3EDDHMHF"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:45:27.428104776Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QD1I/SeAAwACUklRiVtN",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "UYlbTQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 3
+          },
+          "f_port": 2,
+          "frm_payload": "Ukk=",
+          "full_f_cnt": 3
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905300000",
+        "timestamp": 2932326784,
+        "time": "2025-04-02T17:45:27.192Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:45:27.192Z",
+          "timestamp": 2932326784,
+          "rssi": -60,
+          "channel_rssi": -60,
+          "snr": 12.8,
+          "frequency_offset": "-303",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEICDn/YKGgsIt++1vwYQn7HmaiCAuK/iq5doKgsIt++1vwYQgODGWw==",
+          "channel_index": 7,
+          "gps_time": "2025-04-02T17:45:27.192Z",
+          "received_at": "2025-04-02T17:45:27.200527223Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:45:27.224872098Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSQ8XRB1W654MM0J5A1NST"
+      ],
+      "device_channel_index": 15,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSQ8XRB1W654MM0J5A1NST"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSQ9445APM43S4KSVCERQR"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:45:26.925274956Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "oD1I/SeAAwAB+H1ieg==",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_DOWN"
+        },
+        "mic": "+H1ieg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 3
+          },
+          "f_port": 1,
+          "full_f_cnt": 3
+        }
+      },
+      "request": {
+        "class": "CLASS_C",
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIGH1eQJGgwIhe21vwYQgYfCtwMg6N++uLqOaCoMCIXttb8GEICuq6kD"
+          }
+        ],
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "as:downlink:01JQVSF1KJRHR3NF6QKTQBT8MP",
+        "ns:transmission:01JQVSQ8MDH84QJ8CJ8A3FTG2X",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:148489bb-e895-42de-b0d1-a592cfd8bb73"
+      ]
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVSF1KJRHR3NF6QKTQBT8MP",
+      "ns:transmission:01JQVSQ8MDH84QJ8CJ8A3FTG2X",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:148489bb-e895-42de-b0d1-a592cfd8bb73"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSQ8MD2CWP2QH83V4X576R"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-02T17:40:57.588836623Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "decoded_payload": {
+        "duration": 3600,
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQVSF1KJRHR3NF6QKTQBT8MP",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:148489bb-e895-42de-b0d1-a592cfd8bb73"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVSF1KJRHR3NF6QKTQBT8MP",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:148489bb-e895-42de-b0d1-a592cfd8bb73"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "EP5QAVEGGRCNLDWF6JMI4AHNJIPSL6XNSPMYSJQ"
+    },
+    "remote_ip": "99.189.75.121",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQVSF1KM7R2XBGD0M1TFYPBE"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:40:22.326952464Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SeGAgADMQD/AQbEBukW",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "xAbpFg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 2,
+            "f_opts": "AzEA/wEG"
+          },
+          "full_f_cnt": 2
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIGH1eQJGgwIhe21vwYQgYfCtwMg6N++uLqOaCoMCIXttb8GEICuq6kD"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "927500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDYS1JR1RD9C69P149DWN",
+        "ns:downlink:01JQVSDZ5PXSZ63DX9SA9GZ2Q0",
+        "ns:transmission:01JQVSDZ5PKBN8HF44F96X6AK8"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDYS1JR1RD9C69P149DWN",
+      "ns:downlink:01JQVSDZ5PXSZ63DX9SA9GZ2Q0",
+      "ns:transmission:01JQVSDZ5PKBN8HF44F96X6AK8"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDZ5P91HZS1Q9H43BJV7H"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:40:22.132115106Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDYS1JR1RD9C69P149DWN"
+      ],
+      "received_at": "2025-04-02T17:40:22.125146697Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "f_port": 2,
+        "f_cnt": 2,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:40:21.892Z",
+            "timestamp": 2627027841,
+            "rssi": -61,
+            "channel_rssi": -61,
+            "snr": 13,
+            "frequency_offset": "-307",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIGH1eQJGgwIhe21vwYQgYfCtwMg6N++uLqOaCoMCIXttb8GEICuq6kD",
+            "channel_index": 7,
+            "gps_time": "2025-04-02T17:40:21.892Z",
+            "received_at": "2025-04-02T17:40:21.898213793Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905300000",
+          "timestamp": 2627027841,
+          "time": "2025-04-02T17:40:21.892Z"
+        },
+        "received_at": "2025-04-02T17:40:21.922651963Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDYS1JR1RD9C69P149DWN"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDYZM0NAGHYP5WNKPSMZQ"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:40:22.124405461Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QD1I/SeAAgACRaFg+a6T",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "YPmukw==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 2
+          },
+          "f_port": 2,
+          "frm_payload": "RaE=",
+          "full_f_cnt": 2
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905300000",
+        "timestamp": 2627027841,
+        "time": "2025-04-02T17:40:21.892Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:40:21.892Z",
+          "timestamp": 2627027841,
+          "rssi": -61,
+          "channel_rssi": -61,
+          "snr": 13,
+          "frequency_offset": "-307",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIGH1eQJGgwIhe21vwYQgYfCtwMg6N++uLqOaCoMCIXttb8GEICuq6kD",
+          "channel_index": 7,
+          "gps_time": "2025-04-02T17:40:21.892Z",
+          "received_at": "2025-04-02T17:40:21.898213793Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:40:21.922651963Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSDYS1JR1RD9C69P149DWN"
+      ],
+      "device_channel_index": 15,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDYS1JR1RD9C69P149DWN"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDYZCN66YWEA1448CCGQ3"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:40:17.045953667Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SeGAQADMQD/AQZtlYk+",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "bZWJPg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 1,
+            "f_opts": "AzEA/wEG"
+          },
+          "full_f_cnt": 1
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDELXYkeIJGgwIgO21vwYQibTqrQIgiN6a2qaOaCoMCIDttb8GEIDxnpsC"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "927500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDSKSRHSGE09ANXQK51K2",
+        "ns:downlink:01JQVSDT0N58XC2VQNS0AG5WMJ",
+        "ns:transmission:01JQVSDT0NG695RX8Z8ZTPAMCZ"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDSKSRHSGE09ANXQK51K2",
+      "ns:downlink:01JQVSDT0N58XC2VQNS0AG5WMJ",
+      "ns:transmission:01JQVSDT0NG695RX8Z8ZTPAMCZ"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDT0NR4HY82ESS4JGC53Z"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:40:16.848925636Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDSKSRHSGE09ANXQK51K2"
+      ],
+      "received_at": "2025-04-02T17:40:16.846413388Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "f_port": 2,
+        "f_cnt": 1,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:40:16.594Z",
+            "timestamp": 2621729845,
+            "rssi": -71,
+            "channel_rssi": -71,
+            "snr": 11.8,
+            "frequency_offset": "-484",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDELXYkeIJGgwIgO21vwYQibTqrQIgiN6a2qaOaCoMCIDttb8GEIDxnpsC",
+            "channel_index": 7,
+            "gps_time": "2025-04-02T17:40:16.594Z",
+            "received_at": "2025-04-02T17:40:16.609467945Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905300000",
+          "timestamp": 2621729845,
+          "time": "2025-04-02T17:40:16.594Z"
+        },
+        "received_at": "2025-04-02T17:40:16.633658941Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDSKSRHSGE09ANXQK51K2"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDSTGY1HG9D497WNSN8KP"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:40:16.845481660Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QD1I/SeAAQACXzXTqXoB",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "06l6AQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 1
+          },
+          "f_port": 2,
+          "frm_payload": "XzU=",
+          "full_f_cnt": 1
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905300000",
+        "timestamp": 2621729845,
+        "time": "2025-04-02T17:40:16.594Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:40:16.594Z",
+          "timestamp": 2621729845,
+          "rssi": -71,
+          "channel_rssi": -71,
+          "snr": 11.8,
+          "frequency_offset": "-484",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDELXYkeIJGgwIgO21vwYQibTqrQIgiN6a2qaOaCoMCIDttb8GEIDxnpsC",
+          "channel_index": 7,
+          "gps_time": "2025-04-02T17:40:16.594Z",
+          "received_at": "2025-04-02T17:40:16.609467945Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:40:16.633658941Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSDSKSRHSGE09ANXQK51K2"
+      ],
+      "device_channel_index": 15,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDSKSRHSGE09ANXQK51K2"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDSTDMH8W9TC3NTPBTPG8"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:40:11.737027414Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SeGAAADMQD/AQbQlnQG",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "0JZ0Bg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_opts": "AzEA/wEG"
+          }
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqpzt8JGgwI++y1vwYQlLzHmwEgkOT2+5KOaCoMCPvstb8GEIC0ko0B"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "923300000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S",
+        "ns:downlink:01JQVSDMTS9VNNVXAR5V4PG7SH",
+        "ns:transmission:01JQVSDMTSWZGN0ZYZBNVDVCWH"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S",
+      "ns:downlink:01JQVSDMTS9VNNVXAR5V4PG7SH",
+      "ns:transmission:01JQVSDMTSWZGN0ZYZBNVDVCWH"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDMTSJGQXFVCZJGQQADP7"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:40:11.539658216Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S"
+      ],
+      "received_at": "2025-04-02T17:40:11.531180675Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "f_port": 1,
+        "frm_payload": "AQ==",
+        "decoded_payload": {},
+        "decoded_payload_warnings": [
+          "Unknown fPort"
+        ],
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:40:11.296Z",
+            "timestamp": 2616431850,
+            "rssi": -70,
+            "channel_rssi": -70,
+            "snr": 12,
+            "frequency_offset": "-186",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqpzt8JGgwI++y1vwYQlLzHmwEgkOT2+5KOaCoMCPvstb8GEIC0ko0B",
+            "gps_time": "2025-04-02T17:40:11.296Z",
+            "received_at": "2025-04-02T17:40:11.302711348Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "903900000",
+          "timestamp": 2616431850,
+          "time": "2025-04-02T17:40:11.296Z"
+        },
+        "received_at": "2025-04-02T17:40:11.327146684Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDMMK21Z7B4JRG9ERXKZN"
+  },
+  {
+    "name": "as.up.data.decode.warning",
+    "time": "2025-04-02T17:40:11.538774220Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUplink",
+      "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+      "f_port": 1,
+      "frm_payload": "AQ==",
+      "decoded_payload": {},
+      "decoded_payload_warnings": [
+        "Unknown fPort"
+      ],
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:40:11.296Z",
+          "timestamp": 2616431850,
+          "rssi": -70,
+          "channel_rssi": -70,
+          "snr": 12,
+          "frequency_offset": "-186",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqpzt8JGgwI++y1vwYQlLzHmwEgkOT2+5KOaCoMCPvstb8GEIC0ko0B",
+          "gps_time": "2025-04-02T17:40:11.296Z",
+          "received_at": "2025-04-02T17:40:11.302711348Z"
+        }
+      ],
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "903900000",
+        "timestamp": 2616431850,
+        "time": "2025-04-02T17:40:11.296Z"
+      },
+      "received_at": "2025-04-02T17:40:11.327146684Z",
+      "consumed_airtime": "0.164864s",
+      "network_ids": {
+        "net_id": "000013",
+        "ns_id": "EC656E0000102C53",
+        "tenant_id": "fmsiotcloud",
+        "cluster_id": "nam1",
+        "cluster_address": "nam1.cloud.thethings.industries",
+        "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDMMJSSWSDQCXET218P7J"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:40:11.530552940Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QD1I/SeAAAABTHUGB3k=",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "dQYHeQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            }
+          },
+          "f_port": 1,
+          "frm_payload": "TA=="
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "903900000",
+        "timestamp": 2616431850,
+        "time": "2025-04-02T17:40:11.296Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:40:11.296Z",
+          "timestamp": 2616431850,
+          "rssi": -70,
+          "channel_rssi": -70,
+          "snr": 12,
+          "frequency_offset": "-186",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqpzt8JGgwI++y1vwYQlLzHmwEgkOT2+5KOaCoMCPvstb8GEIC0ko0B",
+          "gps_time": "2025-04-02T17:40:11.296Z",
+          "received_at": "2025-04-02T17:40:11.302711348Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:40:11.327146684Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S"
+      ],
+      "device_channel_index": 8,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDMDY17SY7EJQ749GR80S"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDMMAWTV68KPV1CMVGJ5B"
+  },
+  {
+    "name": "as.up.join.forward",
+    "time": "2025-04-02T17:40:07.760908228Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSDF5ZKCRMKXETV58MPP0Z"
+      ],
+      "received_at": "2025-04-02T17:40:07.757932951Z",
+      "join_accept": {
+        "session_key_id": "AZX3lrzGbxHmv/IeQ0e4HQ==",
+        "received_at": "2025-04-02T17:40:05.951997045Z"
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDF5ZKCRMKXETV58MPP0Z"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDGYGH8PF7NQE7WQCST20"
+  },
+  {
+    "name": "ns.up.join.process",
+    "time": "2025-04-02T17:40:06.163035636Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "AApBANh+1bNwCkEA2H7Vs3AAAEq07OU=",
+      "payload": {
+        "m_hdr": {},
+        "mic": "SrTs5Q==",
+        "join_request_payload": {
+          "join_eui": "70B3D57ED800410A",
+          "dev_eui": "70B3D57ED800410A",
+          "dev_nonce": "0000"
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 10,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904100000",
+        "timestamp": 2611050604,
+        "time": "2025-04-02T17:40:05.915Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:40:05.915Z",
+          "timestamp": 2611050604,
+          "rssi": -67,
+          "channel_rssi": -67,
+          "snr": 12.8,
+          "frequency_offset": "-4",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOzwhd0JGgwI9ey1vwYQqM7JxQMg4Mv59f6NaCoMCPXstb8GEMCVp7QD",
+          "channel_index": 1,
+          "gps_time": "2025-04-02T17:40:05.915Z",
+          "received_at": "2025-04-02T17:40:05.927697736Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:40:05.951997045Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSDF5ZKCRMKXETV58MPP0Z"
+      ],
+      "device_channel_index": 9,
+      "consumed_airtime": "0.370688s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSDF5ZKCRMKXETV58MPP0Z"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDFCKHV3M4EXKW32CD4V4"
+  },
+  {
+    "name": "js.join.accept",
+    "time": "2025-04-02T17:40:05.968716737Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "origin": "ip-10-22-15-124.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSDF6GETZGWPFPM9X48KZA"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:38:35.639558103Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YDNI/SeGAgADMgD/AQY33glP",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "N94JTw==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD4833",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 2,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 2
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIb047EJGgsIm+y1vwYQ1Mf8aCDwzsL0rItoKgsIm+y1vwYQwK6nVg=="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "925100000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSAPJMXS3GNMV4HKHY209W",
+        "ns:downlink:01JQVSAPZQA0MFADKJ27H52FGP",
+        "ns:transmission:01JQVSAPZQ4Z6H87KWBPF01ZRB"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAPJMXS3GNMV4HKHY209W",
+      "ns:downlink:01JQVSAPZQA0MFADKJ27H52FGP",
+      "ns:transmission:01JQVSAPZQ4Z6H87KWBPF01ZRB"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSAPZQA5RMMCYD7KX2Y2NQ"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:38:35.438890421Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD4833"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSAPJMXS3GNMV4HKHY209W"
+      ],
+      "received_at": "2025-04-02T17:38:35.431805169Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lRxzKBPNNekPttZSDQ==",
+        "f_port": 2,
+        "f_cnt": 2,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:38:35.181Z",
+            "timestamp": 2520316422,
+            "rssi": -59,
+            "channel_rssi": -59,
+            "snr": 12.8,
+            "frequency_offset": "-423",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIb047EJGgsIm+y1vwYQ1Mf8aCDwzsL0rItoKgsIm+y1vwYQwK6nVg==",
+            "channel_index": 3,
+            "gps_time": "2025-04-02T17:38:35.181Z",
+            "received_at": "2025-04-02T17:38:35.196650494Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "904500000",
+          "timestamp": 2520316422,
+          "time": "2025-04-02T17:38:35.181Z"
+        },
+        "received_at": "2025-04-02T17:38:35.220878884Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAPJMXS3GNMV4HKHY209W"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSAPSEY98NS5Z3P1ZQX8DP"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:38:35.431299703Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QDNI/SeAAgAC6Ngo3I2N",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "KNyNjQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD4833",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 2
+          },
+          "f_port": 2,
+          "frm_payload": "6Ng=",
+          "full_f_cnt": 2
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904500000",
+        "timestamp": 2520316422,
+        "time": "2025-04-02T17:38:35.181Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:38:35.181Z",
+          "timestamp": 2520316422,
+          "rssi": -59,
+          "channel_rssi": -59,
+          "snr": 12.8,
+          "frequency_offset": "-423",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEIb047EJGgsIm+y1vwYQ1Mf8aCDwzsL0rItoKgsIm+y1vwYQwK6nVg==",
+          "channel_index": 3,
+          "gps_time": "2025-04-02T17:38:35.181Z",
+          "received_at": "2025-04-02T17:38:35.196650494Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:38:35.220878884Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSAPJMXS3GNMV4HKHY209W"
+      ],
+      "device_channel_index": 11,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAPJMXS3GNMV4HKHY209W"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSAPS7PEB38GQY8MESKQ8M"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:38:30.331205559Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YDNI/SeGAQADMgD/AQY/ihOH",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "P4oThw==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD4833",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 1,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 1
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDELfFoK8JGgwIley1vwYQwZi+tQMg2LWelpmLaCoMCJXstb8GEMCFhqUD"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "925100000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSAHCX7ME2NE2N50JQFNKX",
+        "ns:downlink:01JQVSAHSV6TQNT3NR03G08SPR",
+        "ns:transmission:01JQVSAHSVY26ADQW7084YQ7PV"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAHCX7ME2NE2N50JQFNKX",
+      "ns:downlink:01JQVSAHSV6TQNT3NR03G08SPR",
+      "ns:transmission:01JQVSAHSVY26ADQW7084YQ7PV"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSAHSVVH6K3H98S9EFBDSB"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:38:30.137804049Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD4833"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSAHCX7ME2NE2N50JQFNKX"
+      ],
+      "received_at": "2025-04-02T17:38:30.130820639Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lRxzKBPNNekPttZSDQ==",
+        "f_port": 2,
+        "f_cnt": 1,
+        "frm_payload": "AAA=",
+        "decoded_payload": {
+          "relayStates": {
+            "relay1": false,
+            "relay2": false,
+            "relay3": false,
+            "relay4": false,
+            "relay5": false,
+            "relay6": false,
+            "relay7": false,
+            "relay8": false
+          }
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:38:29.883Z",
+            "timestamp": 2515018423,
+            "rssi": -60,
+            "channel_rssi": -60,
+            "snr": 12,
+            "frequency_offset": "-425",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDELfFoK8JGgwIley1vwYQwZi+tQMg2LWelpmLaCoMCJXstb8GEMCFhqUD",
+            "channel_index": 3,
+            "gps_time": "2025-04-02T17:38:29.883Z",
+            "received_at": "2025-04-02T17:38:29.893980267Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "904500000",
+          "timestamp": 2515018423,
+          "time": "2025-04-02T17:38:29.883Z"
+        },
+        "received_at": "2025-04-02T17:38:29.918261599Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAHCX7ME2NE2N50JQFNKX"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSAHKSQMN299PTS6J0VR3W"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:38:30.130258860Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QDNI/SeAAQAChPgoCPxG",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "KAj8Rg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD4833",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 1
+          },
+          "f_port": 2,
+          "frm_payload": "hPg=",
+          "full_f_cnt": 1
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904500000",
+        "timestamp": 2515018423,
+        "time": "2025-04-02T17:38:29.883Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:38:29.883Z",
+          "timestamp": 2515018423,
+          "rssi": -60,
+          "channel_rssi": -60,
+          "snr": 12,
+          "frequency_offset": "-425",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDELfFoK8JGgwIley1vwYQwZi+tQMg2LWelpmLaCoMCJXstb8GEMCFhqUD",
+          "channel_index": 3,
+          "gps_time": "2025-04-02T17:38:29.883Z",
+          "received_at": "2025-04-02T17:38:29.893980267Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:38:29.918261599Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSAHCX7ME2NE2N50JQFNKX"
+      ],
+      "device_channel_index": 11,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAHCX7ME2NE2N50JQFNKX"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSAHKJSJMKFQT7AHZ95Q1H"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T17:38:25.035103446Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YDNI/SeGAAADMgD/AQb4Q7R9",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "+EO0fQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD4833",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_opts": "AzIA/wEG"
+          }
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqW3awJGgwIkOy1vwYQirKjpAIgkKz6t4WLaCoMCJDstb8GEMDI+ZYC"
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "923900000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5",
+        "ns:downlink:01JQVSACMBA9HSYZDDSJ5ZVK8G",
+        "ns:transmission:01JQVSACMBJ0JAPFR8FCT49GJJ"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5",
+      "ns:downlink:01JQVSACMBA9HSYZDDSJ5ZVK8G",
+      "ns:transmission:01JQVSACMBJ0JAPFR8FCT49GJJ"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSACMBPNKZMN1AAJ3EVB1T"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T17:38:24.834557063Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD4833"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5"
+      ],
+      "received_at": "2025-04-02T17:38:24.826351070Z",
+      "uplink_message": {
+        "session_key_id": "AZX3lRxzKBPNNekPttZSDQ==",
+        "f_port": 1,
+        "frm_payload": "AQ==",
+        "decoded_payload": {},
+        "decoded_payload_warnings": [
+          "Unknown fPort"
+        ],
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "fms-iot-things",
+              "eui": "24E124FFFEF2F8C3"
+            },
+            "time": "2025-04-02T17:38:24.585Z",
+            "timestamp": 2509720426,
+            "rssi": -59,
+            "channel_rssi": -59,
+            "snr": 14.5,
+            "frequency_offset": "179",
+            "location": {
+              "latitude": 30.2263929475762,
+              "longitude": -97.7599310874939,
+              "altitude": 187,
+              "source": "SOURCE_REGISTRY"
+            },
+            "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqW3awJGgwIkOy1vwYQirKjpAIgkKz6t4WLaCoMCJDstb8GEMDI+ZYC",
+            "channel_index": 1,
+            "gps_time": "2025-04-02T17:38:24.585Z",
+            "received_at": "2025-04-02T17:38:24.589474336Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "904100000",
+          "timestamp": 2509720426,
+          "time": "2025-04-02T17:38:24.585Z"
+        },
+        "received_at": "2025-04-02T17:38:24.613971105Z",
+        "consumed_airtime": "0.164864s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSACE2NFJZ0Z3QP7QGYG37"
+  },
+  {
+    "name": "as.up.data.decode.warning",
+    "time": "2025-04-02T17:38:24.833772246Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUplink",
+      "session_key_id": "AZX3lRxzKBPNNekPttZSDQ==",
+      "f_port": 1,
+      "frm_payload": "AQ==",
+      "decoded_payload": {},
+      "decoded_payload_warnings": [
+        "Unknown fPort"
+      ],
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:38:24.585Z",
+          "timestamp": 2509720426,
+          "rssi": -59,
+          "channel_rssi": -59,
+          "snr": 14.5,
+          "frequency_offset": "179",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqW3awJGgwIkOy1vwYQirKjpAIgkKz6t4WLaCoMCJDstb8GEMDI+ZYC",
+          "channel_index": 1,
+          "gps_time": "2025-04-02T17:38:24.585Z",
+          "received_at": "2025-04-02T17:38:24.589474336Z"
+        }
+      ],
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904100000",
+        "timestamp": 2509720426,
+        "time": "2025-04-02T17:38:24.585Z"
+      },
+      "received_at": "2025-04-02T17:38:24.613971105Z",
+      "consumed_airtime": "0.164864s",
+      "network_ids": {
+        "net_id": "000013",
+        "ns_id": "EC656E0000102C53",
+        "tenant_id": "fmsiotcloud",
+        "cluster_id": "nam1",
+        "cluster_address": "nam1.cloud.thethings.industries",
+        "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSACE1T0DXWVZ5JRQNBJ42"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T17:38:24.825753109Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "QDNI/SeAAAABU+MACio=",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_UP"
+        },
+        "mic": "4wAKKg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD4833",
+            "f_ctrl": {
+              "adr": true
+            }
+          },
+          "f_port": 1,
+          "frm_payload": "Uw=="
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904100000",
+        "timestamp": 2509720426,
+        "time": "2025-04-02T17:38:24.585Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:38:24.585Z",
+          "timestamp": 2509720426,
+          "rssi": -59,
+          "channel_rssi": -59,
+          "snr": 14.5,
+          "frequency_offset": "179",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOqW3awJGgwIkOy1vwYQirKjpAIgkKz6t4WLaCoMCJDstb8GEMDI+ZYC",
+          "channel_index": 1,
+          "gps_time": "2025-04-02T17:38:24.585Z",
+          "received_at": "2025-04-02T17:38:24.589474336Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:38:24.613971105Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5"
+      ],
+      "device_channel_index": 9,
+      "consumed_airtime": "0.164864s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSAC750EJGN0H8KVRN6EJ5"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSACDSY1PN0C4ZSRDJ9B0E"
+  },
+  {
+    "name": "as.up.join.forward",
+    "time": "2025-04-02T17:38:21.054807267Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD4833"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVSA6ZAGY3388HVPQJY0X4K"
+      ],
+      "received_at": "2025-04-02T17:38:21.048817309Z",
+      "join_accept": {
+        "session_key_id": "AZX3lRxzKBPNNekPttZSDQ==",
+        "received_at": "2025-04-02T17:38:19.242898325Z"
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSA6ZAGY3388HVPQJY0X4K"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSA8QYBS50YPCV1PKNC2A0"
+  },
+  {
+    "name": "ns.up.join.process",
+    "time": "2025-04-02T17:38:19.452681008Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "AApBANh+1bNwCkEA2H7Vs3AAAEq07OU=",
+      "payload": {
+        "m_hdr": {},
+        "mic": "SrTs5Q==",
+        "join_request_payload": {
+          "join_eui": "70B3D57ED800410A",
+          "dev_eui": "70B3D57ED800410A",
+          "dev_nonce": "0000"
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 10,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905300000",
+        "timestamp": 2504339177,
+        "time": "2025-04-02T17:38:19.203Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "fms-iot-things",
+            "eui": "24E124FFFEF2F8C3"
+          },
+          "time": "2025-04-02T17:38:19.203Z",
+          "timestamp": 2504339177,
+          "rssi": -58,
+          "channel_rssi": -58,
+          "snr": 13.5,
+          "frequency_offset": "-309",
+          "location": {
+            "latitude": 30.2263929475762,
+            "longitude": -97.7599310874939,
+            "altitude": 187,
+            "source": "SOURCE_REGISTRY"
+          },
+          "uplink_token": "ChwKGgoOZm1zLWlvdC10aGluZ3MSCCThJP/+8vjDEOndlKoJGgsIi+y1vwYQ7dC+cyCo/Pyx8YpoKgsIi+y1vwYQwJHmYA==",
+          "channel_index": 7,
+          "gps_time": "2025-04-02T17:38:19.203Z",
+          "received_at": "2025-04-02T17:38:19.218685898Z"
+        }
+      ],
+      "received_at": "2025-04-02T17:38:19.242898325Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVSA6ZAGY3388HVPQJY0X4K"
+      ],
+      "device_channel_index": 15,
+      "consumed_airtime": "0.370688s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVSA6ZAGY3388HVPQJY0X4K"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSA75WJZKH9X620ZRC1KCB"
+  },
+  {
+    "name": "js.join.accept",
+    "time": "2025-04-02T17:38:19.389157763Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4833"
+        }
+      }
+    ],
+    "origin": "ip-10-22-15-124.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVSA73X255TK7NKE32YGNB5"
+  },
+  {
+    "time": "2025-04-02T17:01:32.091Z",
+    "name": "synthetic.status.reconnected",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743613292091"
+  },
+  {
+    "time": "2025-04-02T15:27:04.251Z",
+    "name": "synthetic.status.closed",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743607624251"
+  },
+  {
+    "time": "2025-04-02T15:11:17.900Z",
+    "name": "synthetic.status.reconnected",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743606677900"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T15:04:50.451353333Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemEQADMgD/AQbhW2bV",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "4Vtm1Q==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 17,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 17
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDEre2CAxoLCJKktb8GEI+b2gwgoNurps7cZg=="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "926900000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVGH5KAS71JAEHXGNWBR6E3",
+        "ns:downlink:01JQVGH60K2BFHW343J6D0R9AC",
+        "ns:transmission:01JQVGH60KC0SW3JK212P4RAZ3"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVGH5KAS71JAEHXGNWBR6E3",
+      "ns:downlink:01JQVGH60K2BFHW343J6D0R9AC",
+      "ns:transmission:01JQVGH60KC0SW3JK212P4RAZ3"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVGH60KCMERB0TSVFC21D2J"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T15:04:50.237830321Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVGH5KAS71JAEHXGNWBR6E3"
+      ],
+      "received_at": "2025-04-02T15:04:50.231738472Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 14,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T15:04:49.997970Z",
+            "timestamp": 811292356,
+            "rssi": -60,
+            "channel_rssi": -60,
+            "snr": 12,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDEre2CAxoLCJKktb8GEI+b2gwgoNurps7cZg==",
+            "channel_index": 6,
+            "received_at": "2025-04-02T15:04:49.993558619Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905100000",
+          "timestamp": 811292356,
+          "time": "2025-04-02T15:04:49.997970Z"
+        },
+        "received_at": "2025-04-02T15:04:50.028814961Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "packet_error_rate": 0.06666667,
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVGH5KAS71JAEHXGNWBR6E3"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVGH5SXAFNGXZ3T8C0YVF90"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T15:04:50.231009902Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "gD1I/SeADgAC6gGVkOZbe84zcIF8",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_UP"
+        },
+        "mic": "M3CBfA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 14
+          },
+          "f_port": 2,
+          "frm_payload": "6gGVkOZbe84=",
+          "full_f_cnt": 14
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905100000",
+        "timestamp": 811292356,
+        "time": "2025-04-02T15:04:49.997970Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "henkecove",
+            "eui": "A84041FFFF205BD4"
+          },
+          "time": "2025-04-02T15:04:49.997970Z",
+          "timestamp": 811292356,
+          "rssi": -60,
+          "channel_rssi": -60,
+          "snr": 12,
+          "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDEre2CAxoLCJKktb8GEI+b2gwgoNurps7cZg==",
+          "channel_index": 6,
+          "received_at": "2025-04-02T15:04:49.993558619Z"
+        }
+      ],
+      "received_at": "2025-04-02T15:04:50.028814961Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVGH5KAS71JAEHXGNWBR6E3"
+      ],
+      "device_channel_index": 14,
+      "consumed_airtime": "0.185344s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVGH5KAS71JAEHXGNWBR6E3"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVGH5SQKK7WPXPW88T75ZZS"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:59:45.144008485Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          }
+        }
+      }
+    ],
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVG7VVR591T29KJWRFMFMJD"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:59:44.942943544Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          }
+        }
+      }
+    ],
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVG7VNEY8XMNGPT160YN10N"
+  },
+  {
+    "time": "2025-04-02T14:54:04.738Z",
+    "name": "synthetic.status.closed",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743605644738"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:49:34.474097944Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemDgADMgD/AQaSA4/M",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "kgOPzA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 14,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 14
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDc0IrODxoLCP6ctb8GEOHwiRkg4M6Gg/rBZg=="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "926300000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVFN734JYNHK5PGD5XWVY4D",
+        "ns:downlink:01JQVFN7GA94VDXTRXCFTK228A",
+        "ns:transmission:01JQVFN7GA5KTXKCVZMRBZTS0B"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVFN734JYNHK5PGD5XWVY4D",
+      "ns:downlink:01JQVFN7GA94VDXTRXCFTK228A",
+      "ns:transmission:01JQVFN7GA5KTXKCVZMRBZTS0B"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVFN7GA15BSDGP5SS1RQJKZ"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:49:34.269111885Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVFN734JYNHK5PGD5XWVY4D"
+      ],
+      "received_at": "2025-04-02T14:49:34.266962471Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 11,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T14:49:34.019283Z",
+            "timestamp": 4190283868,
+            "rssi": -60,
+            "channel_rssi": -60,
+            "snr": 11.5,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDc0IrODxoLCP6ctb8GEOHwiRkg4M6Gg/rBZg==",
+            "channel_index": 5,
+            "received_at": "2025-04-02T14:49:34.019466152Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "904900000",
+          "timestamp": 4190283868,
+          "time": "2025-04-02T14:49:34.019283Z"
+        },
+        "received_at": "2025-04-02T14:49:34.053355145Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "packet_error_rate": 0.083333336,
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVFN734JYNHK5PGD5XWVY4D"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVFN79XXDF8W2MT8KBW7ZBP"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T14:49:34.265948236Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "gD1I/SeACwAC6w03MAjPX7FSqLHy",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_UP"
+        },
+        "mic": "Uqix8g==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 11
+          },
+          "f_port": 2,
+          "frm_payload": "6w03MAjPX7E=",
+          "full_f_cnt": 11
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904900000",
+        "timestamp": 4190283868,
+        "time": "2025-04-02T14:49:34.019283Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "henkecove",
+            "eui": "A84041FFFF205BD4"
+          },
+          "time": "2025-04-02T14:49:34.019283Z",
+          "timestamp": 4190283868,
+          "rssi": -60,
+          "channel_rssi": -60,
+          "snr": 11.5,
+          "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDc0IrODxoLCP6ctb8GEOHwiRkg4M6Gg/rBZg==",
+          "channel_index": 5,
+          "received_at": "2025-04-02T14:49:34.019466152Z"
+        }
+      ],
+      "received_at": "2025-04-02T14:49:34.053355145Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVFN734JYNHK5PGD5XWVY4D"
+      ],
+      "device_channel_index": 13,
+      "consumed_airtime": "0.185344s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVFN734JYNHK5PGD5XWVY4D"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVFN79SY1C02J486EZTB3HF"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:44:29.142667560Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemDQADMgD/AQYOYfuo",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "DmH7qA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 13,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 13
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDUib+8DhoMCMyatb8GELaMk9sCIKC448yIuWY="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "926900000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVFBWXRNCE7FDE575TWYVDV",
+        "ns:downlink:01JQVFBXAPPBHSNEYY5JNE3BW0",
+        "ns:transmission:01JQVFBXAPD3GPF40F8RF1MSMS"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVFBWXRNCE7FDE575TWYVDV",
+      "ns:downlink:01JQVFBXAPPBHSNEYY5JNE3BW0",
+      "ns:transmission:01JQVFBXAPD3GPF40F8RF1MSMS"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVFBXAP5SDG9A87KPQ3M43H"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:44:28.935149777Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVFBWXRNCE7FDE575TWYVDV"
+      ],
+      "received_at": "2025-04-02T14:44:28.932243730Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 10,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T14:44:28.697973Z",
+            "timestamp": 3884958932,
+            "rssi": -61,
+            "channel_rssi": -61,
+            "snr": 12.8,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDUib+8DhoMCMyatb8GELaMk9sCIKC448yIuWY=",
+            "channel_index": 6,
+            "received_at": "2025-04-02T14:44:28.695672740Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905100000",
+          "timestamp": 3884958932,
+          "time": "2025-04-02T14:44:28.697973Z"
+        },
+        "received_at": "2025-04-02T14:44:28.728979688Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "packet_error_rate": 0.09090909,
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVFBWXRNCE7FDE575TWYVDV"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVFBX47HANVNCYXVBR5DQ1C"
+  },
+  {
+    "time": "2025-04-02T14:38:39.813Z",
+    "name": "synthetic.status.reconnected",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743604719813"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:34:17.354331439Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemDAADMgD/AQZB7Gl5",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "QexpeQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 12,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 12
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDkyOKYDBoMCOiVtb8GEIvCnMADIKDNiMKhp2Y="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "923300000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVES7FCCB2Q7WH24G7H5D73",
+        "ns:downlink:01JQVES7WATT0MK6BN1SN03KA7",
+        "ns:transmission:01JQVES7WA050TESKAHPY3DQ3J"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVES7FCCB2Q7WH24G7H5D73",
+      "ns:downlink:01JQVES7WATT0MK6BN1SN03KA7",
+      "ns:transmission:01JQVES7WA050TESKAHPY3DQ3J"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVES7WATTJ6GFZGJT6VT2MP"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:34:17.153918462Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVES7FCCB2Q7WH24G7H5D73"
+      ],
+      "received_at": "2025-04-02T14:34:17.151798504Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 8,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T14:34:16.910250Z",
+            "timestamp": 3273172068,
+            "rssi": -65,
+            "channel_rssi": -65,
+            "snr": 12.5,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDkyOKYDBoMCOiVtb8GEIvCnMADIKDNiMKhp2Y=",
+            "received_at": "2025-04-02T14:34:16.907578315Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "903900000",
+          "timestamp": 3273172068,
+          "time": "2025-04-02T14:34:16.910250Z"
+        },
+        "received_at": "2025-04-02T14:34:16.940974268Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVES7FCCB2Q7WH24G7H5D73"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVES7P154MQP7QXPHD6KB96"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T14:34:17.150925080Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "gD1I/SeACAAC+n7rW6VX7jhRKR8V",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_UP"
+        },
+        "mic": "USkfFQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 8
+          },
+          "f_port": 2,
+          "frm_payload": "+n7rW6VX7jg=",
+          "full_f_cnt": 8
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "903900000",
+        "timestamp": 3273172068,
+        "time": "2025-04-02T14:34:16.910250Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "henkecove",
+            "eui": "A84041FFFF205BD4"
+          },
+          "time": "2025-04-02T14:34:16.910250Z",
+          "timestamp": 3273172068,
+          "rssi": -65,
+          "channel_rssi": -65,
+          "snr": 12.5,
+          "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDkyOKYDBoMCOiVtb8GEIvCnMADIKDNiMKhp2Y=",
+          "received_at": "2025-04-02T14:34:16.907578315Z"
+        }
+      ],
+      "received_at": "2025-04-02T14:34:16.940974268Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVES7FCCB2Q7WH24G7H5D73"
+      ],
+      "device_channel_index": 8,
+      "consumed_airtime": "0.185344s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVES7FCCB2Q7WH24G7H5D73"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVES7NYGFW9H828VRM0TDNG"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:29:12.005671836Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemCwADMgD/AQaWoqUw",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "lqKlMA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 11,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 11
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BC04paHCxoMCLeTtb8GEIrfgp4CIKDm8ImwnmY="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "923300000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVEFX9GZRW6NGEWFJMGGM3D",
+        "ns:downlink:01JQVEFXP5JV1VGGFAYSZ5YXQT",
+        "ns:transmission:01JQVEFXP5366V31XMSJSERKR7"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVEFX9GZRW6NGEWFJMGGM3D",
+      "ns:downlink:01JQVEFXP5JV1VGGFAYSZ5YXQT",
+      "ns:transmission:01JQVEFXP5366V31XMSJSERKR7"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVEFXP5ZZER0P1W13XVKGHK"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:29:11.811196179Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVEFX9GZRW6NGEWFJMGGM3D"
+      ],
+      "received_at": "2025-04-02T14:29:11.804884434Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 7,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T14:29:11.568347Z",
+            "timestamp": 2967843124,
+            "rssi": -65,
+            "channel_rssi": -65,
+            "snr": 12.2,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BC04paHCxoMCLeTtb8GEIrfgp4CIKDm8ImwnmY=",
+            "received_at": "2025-04-02T14:29:11.567313464Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "903900000",
+          "timestamp": 2967843124,
+          "time": "2025-04-02T14:29:11.568347Z"
+        },
+        "received_at": "2025-04-02T14:29:11.601340253Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVEFX9GZRW6NGEWFJMGGM3D"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVEFXG3XCSY1W6825QC2CCC"
+  },
+  {
+    "time": "2025-04-02T14:20:55.972Z",
+    "name": "synthetic.status.closed",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743603655972"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:19:01.380855756Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemCQADMgD/AQaDq4VF",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "g6uFRQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 9,
+            "f_opts": "AzIA/wEG"
+          },
+          "full_f_cnt": 9
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BC0ooDkCBoMCNSOtb8GEMrA684DIKDmjKLNjGY="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "927500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVDX8ZAZ1YCQ84T4VEV4G2M",
+        "ns:downlink:01JQVDX9C4V53B0KBV249KKPYZ",
+        "ns:transmission:01JQVDX9C4XVDJPJTPP74F5Y8X"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVDX8ZAZ1YCQ84T4VEV4G2M",
+      "ns:downlink:01JQVDX9C4V53B0KBV249KKPYZ",
+      "ns:transmission:01JQVDX9C4XVDJPJTPP74F5Y8X"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVDX9C45Y7G8ZX6HTCD8V0J"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:19:01.176733990Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVDX8ZAZ1YCQ84T4VEV4G2M"
+      ],
+      "received_at": "2025-04-02T14:19:01.174535020Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 5,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T14:19:00.937176Z",
+            "timestamp": 2357203252,
+            "rssi": -63,
+            "channel_rssi": -63,
+            "snr": 14.5,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BC0ooDkCBoMCNSOtb8GEMrA684DIKDmjKLNjGY=",
+            "channel_index": 7,
+            "received_at": "2025-04-02T14:19:00.938395140Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905300000",
+          "timestamp": 2357203252,
+          "time": "2025-04-02T14:19:00.937176Z"
+        },
+        "received_at": "2025-04-02T14:19:00.971632614Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVDX8ZAZ1YCQ84T4VEV4G2M"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVDX95RSSMP7BRMBTCPJAFP"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T14:19:01.174011162Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "gD1I/SeABQACRZSsF35pI6DGFRdd",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_UP"
+        },
+        "mic": "xhUXXQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 5
+          },
+          "f_port": 2,
+          "frm_payload": "RZSsF35pI6A=",
+          "full_f_cnt": 5
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905300000",
+        "timestamp": 2357203252,
+        "time": "2025-04-02T14:19:00.937176Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "henkecove",
+            "eui": "A84041FFFF205BD4"
+          },
+          "time": "2025-04-02T14:19:00.937176Z",
+          "timestamp": 2357203252,
+          "rssi": -63,
+          "channel_rssi": -63,
+          "snr": 14.5,
+          "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BC0ooDkCBoMCNSOtb8GEMrA684DIKDmjKLNjGY=",
+          "channel_index": 7,
+          "received_at": "2025-04-02T14:19:00.938395140Z"
+        }
+      ],
+      "received_at": "2025-04-02T14:19:00.971632614Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVDX8ZAZ1YCQ84T4VEV4G2M"
+      ],
+      "device_channel_index": 15,
+      "consumed_airtime": "0.185344s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVDX8ZAZ1YCQ84T4VEV4G2M"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVDX95PPEHWJ2H70JGJFY9Q"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:13:56.076127196Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemCAADMQD/AQY/fvkU",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "P375FA==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 8,
+            "f_opts": "AzEA/wEG"
+          },
+          "full_f_cnt": 8
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDc8rTSBxoMCKOMtb8GEJCPobsCIOCeoO3bg2Y="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "924500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVDKYTD46ADZBG593021Y2M",
+        "ns:downlink:01JQVDKZ7CD7SW4Y602KVFRDFT",
+        "ns:transmission:01JQVDKZ7C7QBPPX4VTA53RASG"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVDKYTD46ADZBG593021Y2M",
+      "ns:downlink:01JQVDKZ7CD7SW4Y602KVFRDFT",
+      "ns:transmission:01JQVDKZ7C7QBPPX4VTA53RASG"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVDKZ7CFHDJDGHQJ1YF0T33"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T14:13:55.872493518Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "gD1I/SeABAACxL51MGq/QJdFslUG",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_UP"
+        },
+        "mic": "RbJVBg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 4
+          },
+          "f_port": 2,
+          "frm_payload": "xL51MGq/QJc=",
+          "full_f_cnt": 4
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "904300000",
+        "timestamp": 2051881308,
+        "time": "2025-04-02T14:13:55.617796Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "henkecove",
+            "eui": "A84041FFFF205BD4"
+          },
+          "time": "2025-04-02T14:13:55.617796Z",
+          "timestamp": 2051881308,
+          "rssi": -60,
+          "channel_rssi": -60,
+          "snr": 8.2,
+          "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDc8rTSBxoMCKOMtb8GEJCPobsCIOCeoO3bg2Y=",
+          "channel_index": 2,
+          "received_at": "2025-04-02T14:13:55.628934269Z"
+        }
+      ],
+      "received_at": "2025-04-02T14:13:55.661886682Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVDKYTD46ADZBG593021Y2M"
+      ],
+      "device_channel_index": 10,
+      "consumed_airtime": "0.185344s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVDKYTD46ADZBG593021Y2M"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVDKZ10RRZABXJC2ZX5K9KQ"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:03:44.278649416Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "YD1I/SemBgADMQD/AQYfhvBZ",
+      "payload": {
+        "m_hdr": {
+          "m_type": "UNCONFIRMED_DOWN"
+        },
+        "mic": "H4bwWQ==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 6,
+            "f_opts": "AzEA/wEG"
+          },
+          "full_f_cnt": 6
+        }
+      },
+      "request": {
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BCM8NiuBRoMCL+Htb8GEM+eqaADIODdq+b08WU="
+          }
+        ],
+        "rx1_delay": 5,
+        "rx1_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx1_frequency": "927500000",
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "priority": "HIGHEST",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVD19C150FP5G87JWD4TZQH",
+        "ns:downlink:01JQVD19RPZ00E7BH217AQVFSX",
+        "ns:transmission:01JQVD19RPGF8TAD96G1JPFM4E"
+      ]
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVD19C150FP5G87JWD4TZQH",
+      "ns:downlink:01JQVD19RPZ00E7BH217AQVFSX",
+      "ns:transmission:01JQVD19RPGF8TAD96G1JPFM4E"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVD19RPH1C1WSTX8G6ZNPEW"
+  },
+  {
+    "name": "as.up.data.forward",
+    "time": "2025-04-02T14:03:44.080041663Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationUp",
+      "end_device_ids": {
+        "device_id": "heltec-relay-410a",
+        "application_ids": {
+          "application_id": "fms-demo-smart-office"
+        },
+        "dev_eui": "70B3D57ED800410A",
+        "join_eui": "70B3D57ED800410A",
+        "dev_addr": "27FD483D"
+      },
+      "correlation_ids": [
+        "gs:uplink:01JQVD19C150FP5G87JWD4TZQH"
+      ],
+      "received_at": "2025-04-02T14:03:44.076699257Z",
+      "uplink_message": {
+        "session_key_id": "AZX2y9Et7aZ5GQAl8WbRSw==",
+        "f_port": 2,
+        "f_cnt": 2,
+        "frm_payload": "AAAAAAAAAAA=",
+        "decoded_payload": {
+          "bytes": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "rx_metadata": [
+          {
+            "gateway_ids": {
+              "gateway_id": "henkecove",
+              "eui": "A84041FFFF205BD4"
+            },
+            "time": "2025-04-02T14:03:43.838598Z",
+            "timestamp": 1440102412,
+            "rssi": -59,
+            "channel_rssi": -59,
+            "snr": 11.2,
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BCM8NiuBRoMCL+Htb8GEM+eqaADIODdq+b08WU=",
+            "channel_index": 7,
+            "received_at": "2025-04-02T14:03:43.840901046Z"
+          }
+        ],
+        "settings": {
+          "data_rate": {
+            "lora": {
+              "bandwidth": 125000,
+              "spreading_factor": 9,
+              "coding_rate": "4/5"
+            }
+          },
+          "frequency": "905300000",
+          "timestamp": 1440102412,
+          "time": "2025-04-02T14:03:43.838598Z"
+        },
+        "received_at": "2025-04-02T14:03:43.873994898Z",
+        "confirmed": true,
+        "consumed_airtime": "0.185344s",
+        "network_ids": {
+          "net_id": "000013",
+          "ns_id": "EC656E0000102C53",
+          "tenant_id": "fmsiotcloud",
+          "cluster_id": "nam1",
+          "cluster_address": "nam1.cloud.thethings.industries",
+          "tenant_address": "fmsiotcloud.nam1.cloud.thethings.industries"
+        }
+      }
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVD19C150FP5G87JWD4TZQH"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVD19JGC5XMDRTPAZ2NXPB5"
+  },
+  {
+    "name": "ns.up.data.process",
+    "time": "2025-04-02T14:03:44.076192722Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.UplinkMessage",
+      "raw_payload": "gD1I/SegAgACIpERpwNH97puK5iW",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_UP"
+        },
+        "mic": "biuYlg==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true,
+              "ack": true
+            },
+            "f_cnt": 2
+          },
+          "f_port": 2,
+          "frm_payload": "IpERpwNH97o=",
+          "full_f_cnt": 2
+        }
+      },
+      "settings": {
+        "data_rate": {
+          "lora": {
+            "bandwidth": 125000,
+            "spreading_factor": 9,
+            "coding_rate": "4/5"
+          }
+        },
+        "frequency": "905300000",
+        "timestamp": 1440102412,
+        "time": "2025-04-02T14:03:43.838598Z"
+      },
+      "rx_metadata": [
+        {
+          "gateway_ids": {
+            "gateway_id": "henkecove",
+            "eui": "A84041FFFF205BD4"
+          },
+          "time": "2025-04-02T14:03:43.838598Z",
+          "timestamp": 1440102412,
+          "rssi": -59,
+          "channel_rssi": -59,
+          "snr": 11.2,
+          "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BCM8NiuBRoMCL+Htb8GEM+eqaADIODdq+b08WU=",
+          "channel_index": 7,
+          "received_at": "2025-04-02T14:03:43.840901046Z"
+        }
+      ],
+      "received_at": "2025-04-02T14:03:43.873994898Z",
+      "correlation_ids": [
+        "gs:uplink:01JQVD19C150FP5G87JWD4TZQH"
+      ],
+      "device_channel_index": 15,
+      "consumed_airtime": "0.185344s"
+    },
+    "correlation_ids": [
+      "gs:uplink:01JQVD19C150FP5G87JWD4TZQH"
+    ],
+    "origin": "ip-10-22-7-194.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVD19JC02GWTZ3F0T5V7Q5S"
+  },
+  {
+    "name": "ns.down.data.schedule.attempt",
+    "time": "2025-04-02T14:03:43.571011625Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.DownlinkMessage",
+      "raw_payload": "oD1I/SeABQABhX9q4Q==",
+      "payload": {
+        "m_hdr": {
+          "m_type": "CONFIRMED_DOWN"
+        },
+        "mic": "hX9q4Q==",
+        "mac_payload": {
+          "f_hdr": {
+            "dev_addr": "27FD483D",
+            "f_ctrl": {
+              "adr": true
+            },
+            "f_cnt": 5
+          },
+          "f_port": 1,
+          "full_f_cnt": 5
+        }
+      },
+      "request": {
+        "class": "CLASS_C",
+        "downlink_paths": [
+          {
+            "uplink_token": "ChcKFQoJaGVua2Vjb3ZlEgioQEH//yBb1BDUv42dBBoMCI6Ftb8GELnNooUCIKCoubGD6WU="
+          }
+        ],
+        "rx2_data_rate": {
+          "lora": {
+            "bandwidth": 500000,
+            "spreading_factor": 12,
+            "coding_rate": "4/5"
+          }
+        },
+        "rx2_frequency": "923300000",
+        "frequency_plan_id": "US_902_928_FSB_2"
+      },
+      "correlation_ids": [
+        "as:downlink:01JQVCZJH56HZAKX5JRR5DQBC8",
+        "ns:transmission:01JQVD192KWYJJWHETZP739EC0",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:aef723bc-5bfa-432b-9d27-604d7e968562"
+      ]
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVCZJH56HZAKX5JRR5DQBC8",
+      "ns:transmission:01JQVD192KWYJJWHETZP739EC0",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:aef723bc-5bfa-432b-9d27-604d7e968562"
+    ],
+    "origin": "ip-10-22-14-234.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "unique_id": "01JQVD192K8AP392VH4N98DHG7"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-02T14:02:47.720252738Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "decoded_payload": {
+        "duration": 3600,
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQVCZJH56HZAKX5JRR5DQBC8",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:aef723bc-5bfa-432b-9d27-604d7e968562"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVCZJH56HZAKX5JRR5DQBC8",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:aef723bc-5bfa-432b-9d27-604d7e968562"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "Q55PV3NENFZ7NOESNIYG65DIU542QX7HSRVGT3A"
+    },
+    "remote_ip": "70.112.121.77",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQVCZJH8F0T0MMNYCFP2MZVP"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-02T13:58:41.162865326Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD483D"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "decoded_payload": {
+        "duration": 3600,
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQVCR1R89DXDWYY7PPYVJTZH",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:43073349-4951-488f-bacd-3314a47765a0"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQVCR1R89DXDWYY7PPYVJTZH",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:43073349-4951-488f-bacd-3314a47765a0"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "Q55PV3NENFZ7NOESNIYG65DIU542QX7HSRVGT3A"
+    },
+    "remote_ip": "70.112.121.77",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQVCR1RAXADB0V65274ZT9SN"
+  }
+]
