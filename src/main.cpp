@@ -44,6 +44,7 @@ void checkRelayTimers();
 void sendStatusPacket();
 void processSerialCommand(String command);
 void processJsonCommand(String jsonString);
+void processHexCommand(uint8_t* payload, size_t size);
 void debugPrint(String message);
 
 // Debug print helper
@@ -153,14 +154,69 @@ void processDownlink(uint8_t* payload, size_t size, uint8_t port) {
   Serial.print(size);
   Serial.print(" bytes: ");
   
-  // Convert payload to string
-  String jsonString = "";
+  // Print the payload in hex for debugging
   for (size_t i = 0; i < size; i++) {
-    jsonString += (char)payload[i];
+    if (payload[i] < 16) Serial.print("0");
+    Serial.print(payload[i], HEX);
+    Serial.print(" ");
   }
+  Serial.println();
   
-  Serial.println(jsonString);
-  processJsonCommand(jsonString);
+  // Determine if it's a hex command or JSON command
+  if (size >= 1 && size <= 3) {
+    // Likely a hex command
+    processHexCommand(payload, size);
+  } else {
+    // Convert payload to string for JSON parsing
+    String jsonString = "";
+    for (size_t i = 0; i < size; i++) {
+      jsonString += (char)payload[i];
+    }
+    
+    Serial.println("Parsing as JSON: " + jsonString);
+    processJsonCommand(jsonString);
+  }
+}
+
+void processHexCommand(uint8_t* payload, size_t size) {
+  // Hex command format:
+  // Byte 0: Command type (0x01 = relay control)
+  // Byte 1: Relay number (0-7) in bits 0-2, state in bit 7 (0=off, 1=on)
+  // Byte 2 (optional): Duration in seconds (0-255)
+  
+  if (size < 1) return;
+  
+  uint8_t commandType = payload[0];
+  
+  if (commandType == 0x01 && size >= 2) {
+    // Relay control command
+    uint8_t relayData = payload[1];
+    uint8_t relayNum = relayData & 0x07;  // Extract bits 0-2 (relay number 0-7)
+    bool state = (relayData & 0x80) > 0;  // Extract bit 7 (state)
+    
+    unsigned long duration = 0;
+    if (size >= 3) {
+      duration = payload[2] * 1000; // Convert to milliseconds
+    }
+    
+    Serial.print("HEX command: Relay ");
+    Serial.print(relayNum + 1);
+    Serial.print(" -> ");
+    Serial.print(state ? "ON" : "OFF");
+    if (duration > 0) {
+      Serial.print(" for ");
+      Serial.print(duration / 1000);
+      Serial.println(" seconds");
+    } else {
+      Serial.println();
+    }
+    
+    // Set the relay state
+    setRelay(relayNum, state, duration);
+    lastCommand = "HEX:R" + String(relayNum + 1) + ":" + (state ? "ON" : "OFF");
+  } else {
+    Serial.println("Unknown HEX command type");
+  }
 }
 
 void processJsonCommand(String jsonString) {
@@ -330,6 +386,21 @@ void processSerialCommand(String command) {
     testJson = "{\"relay\":1,\"state\":0}";
     Serial.println("Test command: " + testJson);
     processJsonCommand(testJson);
+  } else if (command == "test_hex") {
+    // Test HEX command processing
+    Serial.println("Running HEX command test...");
+    
+    // Test turning relay 1 ON
+    uint8_t hexCmd1[] = {0x01, 0x80};  // Command 0x01, Relay 0, ON
+    Serial.println("Test command: 01 80");
+    processHexCommand(hexCmd1, 2);
+    
+    delay(2000);
+    
+    // Test turning relay 1 OFF
+    uint8_t hexCmd2[] = {0x01, 0x00};  // Command 0x01, Relay 0, OFF
+    Serial.println("Test command: 01 00");
+    processHexCommand(hexCmd2, 2);
   } else if (command == "reset") {
     Serial.println("Resetting device...");
     delay(500);
@@ -340,6 +411,7 @@ void processSerialCommand(String command) {
     Serial.println("  status - Show current status");
     Serial.println("  join - Force join attempt");
     Serial.println("  test_json - Run test JSON commands");
+    Serial.println("  test_hex - Run test HEX commands");
     Serial.println("  reset - Reset the device");
   }
 }
