@@ -276,12 +276,46 @@ void processJsonCommand(String jsonString) {
     lastCommand = "Parse Error: " + String(error.c_str());
     return;
   }
-  
   Serial.println("JSON parsed successfully");
-  
+
+  // Multi-relay array support
+  if (doc.is<JsonArray>()) {
+    JsonArray arr = doc.as<JsonArray>();
+    for (JsonObject obj : arr) {
+      if (obj["relay"].is<int>() && obj["state"].is<int>()) {
+        int relay = obj["relay"];
+        bool state = obj["state"].as<int>() == 1;
+        unsigned long duration = 0;
+        if (obj["duration"].is<int>() || obj["duration"].is<unsigned long>()) {
+          duration = obj["duration"].as<unsigned long>() * 1000;
+        }
+        Serial.print("Multi: Relay ");
+        Serial.print(relay);
+        Serial.print(" -> ");
+        Serial.print(state ? "ON" : "OFF");
+        if (duration > 0) {
+          Serial.print(" for ");
+          Serial.print(duration / 1000);
+          Serial.println(" seconds");
+        } else {
+          Serial.println();
+        }
+        if (relay >= 1 && relay <= 8) {
+          setRelay(relay - 1, state, duration);
+        } else {
+          Serial.println("Invalid relay number (must be 1-8)");
+        }
+      } else {
+        Serial.println("Missing relay/state in multi-relay object");
+      }
+    }
+    lastCommand = "Multi-relay command";
+    return;
+  }
+
+  // Single-relay fallback (existing logic)
   if (doc.containsKey("relay") && doc.containsKey("state")) {
     int relay = doc["relay"];
-    
     // Handle both numeric and string state values
     bool state = false;
     if (doc["state"].is<int>()) {
@@ -291,27 +325,22 @@ void processJsonCommand(String jsonString) {
       stateStr.toLowerCase();
       state = (stateStr == "on" || stateStr == "1" || stateStr == "true");
     }
-    
     unsigned long duration = 0;
-    
     Serial.print("JSON command decoded: Relay ");
     Serial.print(relay);
     Serial.print(" -> ");
     Serial.println(state ? "ON" : "OFF");
-    
     if (doc.containsKey("duration")) {
       duration = doc["duration"].as<unsigned long>() * 1000;
       Serial.print("Duration: ");
       Serial.print(duration / 1000);
       Serial.println(" seconds");
     }
-    
     if (relay >= 1 && relay <= 8) {
       lastCommand = "Relay:" + String(relay) + " State:" + String(state ? "ON" : "OFF");
       if (duration > 0) {
         lastCommand += " Duration:" + String(duration / 1000) + "s";
       }
-      
       setRelay(relay - 1, state, duration);
     } else {
       Serial.println("Invalid relay number (must be 1-8)");

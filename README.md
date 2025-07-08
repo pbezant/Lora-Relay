@@ -147,6 +147,33 @@ Relays can be controlled via TTN downlink messages using a JSON format:
 - `state`: 1 for ON, 0 for OFF (also supports "on"/"off", "true"/"false" strings)
 - `duration`: (Optional) Duration in seconds to keep the relay ON
 
+### Multi-Relay Control (NEW)
+
+You can now control multiple relays at once by sending an array of relay command objects. Each object can include `relay`, `state`, and optional `duration` (in seconds):
+
+```json
+[
+  {"relay": 1, "state": 1, "duration": 60},
+  {"relay": 2, "state": 0},
+  {"relay": 3, "state": 1, "duration": 10}
+]
+```
+
+- `relay`: The relay number (1-8)
+- `state`: 1 for ON, 0 for OFF (also supports "on"/"off", "true"/"false" strings)
+- `duration`: (Optional) Duration in seconds to keep the relay ON (defaults to 0 if omitted)
+
+**You can still use the old single-relay command format as well.**
+
+#### Example: Turn ON relays 1 and 3 for 1 minute, turn OFF relay 2
+```json
+[
+  {"relay": 1, "state": 1, "duration": 60},
+  {"relay": 2, "state": 0},
+  {"relay": 3, "state": 1, "duration": 60}
+]
+```
+
 ### JSON Downlink Examples
 
 Here are various examples of JSON downlink messages you can use:
