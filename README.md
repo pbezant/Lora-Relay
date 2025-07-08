@@ -149,29 +149,46 @@ Relays can be controlled via TTN downlink messages using a JSON format:
 
 ### Multi-Relay Control (NEW)
 
-You can now control multiple relays at once by sending an array of relay command objects. Each object can include `relay`, `state`, and optional `duration` (in seconds):
+**IMPORTANT:** LoRaWAN downlinks have a **53-byte payload limit**. To fit multiple relay commands, the system automatically converts multi-relay JSON to a compact binary format.
+
+**For TTN Users:** Send your multi-relay commands as JSON - the payload formatter will automatically convert to binary:
 
 ```json
-[
-  {"relay": 1, "state": 1, "duration": 60},
-  {"relay": 2, "state": 0},
-  {"relay": 3, "state": 1, "duration": 10}
-]
+{
+  "relays": [
+    {"relay": 1, "state": 1, "duration": 8},
+    {"relay": 2, "state": 1, "duration": 5},
+    {"relay": 3, "state": 1, "duration": 10}
+  ]
+}
 ```
 
-- `relay`: The relay number (1-8)
-- `state`: 1 for ON, 0 for OFF (also supports "on"/"off", "true"/"false" strings)
-- `duration`: (Optional) Duration in seconds to keep the relay ON (defaults to 0 if omitted)
+**Binary Format (Automatic):**
+- Magic byte: `0xFF` (indicates multi-relay command)
+- Relay count: `1 byte`
+- For each relay: `4 bytes`
+  - Relay number: `1 byte` (1-8)
+  - State: `1 byte` (0/1)
+  - Duration low: `1 byte` (0-255 seconds)
+  - Duration high: `1 byte` (256-65535 seconds)
+
+**Size Limits:**
+- Single relay (JSON): ~34 bytes ✅
+- 3 relays (binary): 14 bytes ✅
+- 12 relays (binary): 50 bytes ✅
+- More than 12 relays: May exceed 53-byte limit ❌
 
 **You can still use the old single-relay command format as well.**
 
 #### Example: Turn ON relays 1 and 3 for 1 minute, turn OFF relay 2
 ```json
-[
-  {"relay": 1, "state": 1, "duration": 60},
-  {"relay": 2, "state": 0},
-  {"relay": 3, "state": 1, "duration": 60}
-]
+{
+  "relays": [
+    {"relay": 1, "state": 1, "duration": 60},
+    {"relay": 2, "state": 0},
+    {"relay": 3, "state": 1, "duration": 60}
+  ]
+}
 ```
 
 ### JSON Downlink Examples

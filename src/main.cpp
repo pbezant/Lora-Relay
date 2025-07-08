@@ -35,6 +35,7 @@ void processSerialCommand(String command);
 void processJsonCommand(String jsonString);
 void processHexCommand(const uint8_t* payload, size_t size);
 void debugPrint(String message);
+void processBinaryMultiRelayCommand(const uint8_t* data, size_t size);
 
 // Debug print helper
 void debugPrint(String message) {
@@ -146,17 +147,27 @@ void onJoinFailed() {
 }
 
 void onDownlink(const uint8_t* data, size_t size, int rssi, int snr) {
-  Serial.println("\n[DOWNLINK RECEIVED]");
-  Serial.print("Size: ");
-  Serial.println(size);
-  Serial.print("RSSI: ");
-  Serial.print(rssi);
-  Serial.print(" dBm, SNR: ");
-  Serial.print(snr);
-  Serial.println(" dB");
-  Serial.print("Payload (HEX): ");
+  Serial.println();
+  Serial.println("=================================================");
+  Serial.println("[LoRaWAN] �� DOWNLINK RECEIVED! Size:" + String(size) + " RSSI:" + String(rssi) + " SNR:" + String(snr));
+  Serial.println("[LoRaWAN] >>> Class C is working! Device received downlink <<<");
   
-  // Print the payload in hex for debugging
+  // Print raw data in hex format
+  Serial.print("[LoRaWAN] Raw Data: ");
+  for (size_t i = 0; i < size; i++) {
+    if (data[i] < 16) Serial.print("0");
+    Serial.print(data[i], HEX);
+    Serial.print(" ");
+  }
+  Serial.println();
+  Serial.println();
+  
+  Serial.println("[DOWNLINK RECEIVED]");
+  Serial.println("Size: " + String(size));
+  Serial.println("RSSI: " + String(rssi) + " dBm, SNR: " + String(snr) + " dB");
+  
+  // Print payload in hex format
+  Serial.print("Payload (HEX): ");
   for (size_t i = 0; i < size; i++) {
     if (data[i] < 16) Serial.print("0");
     Serial.print(data[i], HEX);
@@ -164,35 +175,37 @@ void onDownlink(const uint8_t* data, size_t size, int rssi, int snr) {
   }
   Serial.println();
   
-  // Print as string if possible
-  Serial.print("Payload (ASCII): ");
-  for (size_t i = 0; i < size; i++) {
-    if (isprint(data[i])) {
-      Serial.print((char)data[i]);
-    } else {
-      Serial.print(".");
-    }
-  }
-  Serial.println();
-  
-  // Determine if it's a hex command or JSON command
-  if (size >= 1 && size <= 3) {
-    Serial.println("Processing as HEX command");
-    processHexCommand(data, size);
+  // Check if this is a multi-relay binary command (starts with 0xFF)
+  if (size >= 2 && data[0] == 0xFF) {
+    Serial.println("Processing as binary multi-relay command");
+    processBinaryMultiRelayCommand(data, size);
   } else {
-    // Convert payload to string for JSON parsing
-    String jsonString = "";
+    // Try to interpret as ASCII/JSON first
+    String asciiPayload = "";
+    bool isPrintable = true;
     for (size_t i = 0; i < size; i++) {
-      jsonString += (char)data[i];
+      if (data[i] >= 32 && data[i] <= 126) {
+        asciiPayload += (char)data[i];
+      } else {
+        isPrintable = false;
+        break;
+      }
     }
     
-    Serial.println("Processing as JSON command: " + jsonString);
-    processJsonCommand(jsonString);
+    if (isPrintable && asciiPayload.length() > 0) {
+      Serial.println("Payload (ASCII): " + asciiPayload);
+      Serial.println("Processing as JSON command: " + asciiPayload);
+      processJsonCommand(asciiPayload);
+    } else {
+      Serial.println("Processing as HEX command");
+      processHexCommand(data, size);
+    }
   }
   
-  Serial.println("[END DOWNLINK]\n");
+  Serial.println("[END DOWNLINK]");
+  Serial.println();
   
-  // Send a status packet to confirm the change
+  // Send status packet after processing command
   sendStatusPacket();
 }
 
@@ -278,9 +291,37 @@ void processJsonCommand(String jsonString) {
   }
   Serial.println("JSON parsed successfully");
 
-  // Multi-relay array support
-  if (doc.is<JsonArray>()) {
-    JsonArray arr = doc.as<JsonArray>();
+  // Debug: Show what keys are available
+  Serial.print("JSON keys detected: ");
+  for (JsonPair kv : doc.as<JsonObject>()) {
+    Serial.print(kv.key().c_str());
+    Serial.print(" ");
+  }
+  Serial.println();
+
+  // Debug: Check if relays key exists and its type
+  if (doc.containsKey("relays")) {
+    Serial.println("Found 'relays' key");
+    if (doc["relays"].is<JsonArray>()) {
+      Serial.println("'relays' is detected as JsonArray");
+    } else {
+      Serial.print("'relays' is NOT JsonArray, type: ");
+      if (doc["relays"].is<JsonObject>()) Serial.println("JsonObject");
+      else if (doc["relays"].is<String>()) Serial.println("String");
+      else if (doc["relays"].is<int>()) Serial.println("int");
+      else Serial.println("unknown");
+    }
+  } else {
+    Serial.println("No 'relays' key found");
+  }
+
+  // Multi-relay array under 'relays' key (TTN compatible)
+  if (doc["relays"].is<JsonArray>()) {
+    Serial.println("Processing multi-relay command");
+    JsonArray arr = doc["relays"].as<JsonArray>();
+    Serial.print("Array size: ");
+    Serial.println(arr.size());
+    
     for (JsonObject obj : arr) {
       if (obj["relay"].is<int>() && obj["state"].is<int>()) {
         int relay = obj["relay"];
@@ -314,7 +355,9 @@ void processJsonCommand(String jsonString) {
   }
 
   // Single-relay fallback (existing logic)
-  if (doc.containsKey("relay") && doc.containsKey("state")) {
+  Serial.println("Checking for single-relay command");
+  if (doc["relay"].is<int>() && doc["state"].is<int>()) {
+    Serial.println("Processing single-relay command");
     int relay = doc["relay"];
     // Handle both numeric and string state values
     bool state = false;
@@ -330,7 +373,7 @@ void processJsonCommand(String jsonString) {
     Serial.print(relay);
     Serial.print(" -> ");
     Serial.println(state ? "ON" : "OFF");
-    if (doc.containsKey("duration")) {
+    if (doc["duration"].is<int>() || doc["duration"].is<unsigned long>()) {
       duration = doc["duration"].as<unsigned long>() * 1000;
       Serial.print("Duration: ");
       Serial.print(duration / 1000);
@@ -347,9 +390,55 @@ void processJsonCommand(String jsonString) {
       lastCommand = "Invalid relay: " + String(relay);
     }
   } else {
-    Serial.println("Missing relay/state in JSON");
-    lastCommand = "Missing relay/state";
+    Serial.println("No valid single or multi-relay command found");
+    lastCommand = "Invalid command format";
   }
+}
+
+void processBinaryMultiRelayCommand(const uint8_t* data, size_t size) {
+  Serial.println("Parsing binary multi-relay command");
+  
+  if (size < 2) {
+    Serial.println("Error: Binary command too short");
+    lastCommand = "Error: Binary command too short";
+    return;
+  }
+  
+  if (data[0] != 0xFF) {
+    Serial.println("Error: Invalid magic byte");
+    lastCommand = "Error: Invalid magic byte";
+    return;
+  }
+  
+  uint8_t relayCount = data[1];
+  uint8_t expectedSize = 2 + (relayCount * 4);
+  
+  if (size != expectedSize) {
+    Serial.println("Error: Invalid binary command size. Expected " + String(expectedSize) + ", got " + String(size));
+    lastCommand = "Error: Invalid binary command size";
+    return;
+  }
+  
+  Serial.println("Binary command: " + String(relayCount) + " relays");
+  
+  for (uint8_t i = 0; i < relayCount; i++) {
+    uint8_t offset = 2 + (i * 4);
+    uint8_t relayNum = data[offset];
+    uint8_t state = data[offset + 1];
+    uint8_t durationLow = data[offset + 2];
+    uint8_t durationHigh = data[offset + 3];
+    uint16_t duration = durationLow + (durationHigh << 8);
+    
+    if (relayNum >= 1 && relayNum <= 8) {
+      Serial.println("Binary relay " + String(relayNum) + " -> " + (state ? "ON" : "OFF") + 
+                     (duration > 0 ? " for " + String(duration) + " seconds" : ""));
+      setRelay(relayNum, state == 1, duration * 1000);
+    } else {
+      Serial.println("Error: Invalid relay number " + String(relayNum));
+    }
+  }
+  
+  lastCommand = "Binary multi-relay: " + String(relayCount) + " relays";
 }
 
 void setRelay(uint8_t relayNum, bool state, unsigned long duration) {
