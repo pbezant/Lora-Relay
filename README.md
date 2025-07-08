@@ -44,16 +44,33 @@ You can modify these pin assignments in the `main.cpp` file if needed.
 
 ## LoRaWAN Configuration
 
-Before using this code, you must configure your LoRaWAN credentials in the `main.cpp` file:
+Before using this code, you must configure your LoRaWAN credentials using the secrets system:
 
-```cpp
-// LoRaWAN credentials - Replace with your values from TTN
-const char* devEui = "70B3D57ED800410A"; // Device EUI as hex string
-const char* appEui = "70B3D57ED800410A"; // Application EUI as hex string  
-const char* appKey = "386ACC7F0E22EE607CF0B29466D39CB5"; // App Key as hex string
-```
+### Setting up Credentials
+
+1. **Copy the example file:**
+   ```bash
+   cp include/secrets.h.example include/secrets.h
+   ```
+
+2. **Edit the secrets file:**
+   Open `include/secrets.h` and replace the placeholder values with your actual TTN credentials:
+   ```cpp
+   // LoRaWAN credentials - Replace with your values from TTN
+   const char* devEui = "YOUR_DEVICE_EUI";     // Device EUI as hex string
+   const char* appEui = "YOUR_APPLICATION_EUI"; // Application EUI as hex string  
+   const char* appKey = "YOUR_APP_KEY";         // App Key as hex string
+   ```
+
+3. **Get your credentials from TTN:**
+   - Log into [The Things Network Console](https://console.cloud.thethings.network/)
+   - Go to your application and device
+   - Copy the Device EUI, Application EUI, and App Key exactly as shown
+   - Paste them as hex strings (no spaces, no 0x prefix)
 
 These values must be entered as hex strings in MSB (Most Significant Byte) format, exactly as they appear in the TTN console.
+
+> **Security Note:** The `secrets.h` file is automatically ignored by git to prevent accidental commits of your real credentials. Never commit real network keys to version control!
 
 ## TTN Setup
 
