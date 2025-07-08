@@ -31,14 +31,14 @@ The relay pins are configured as follows:
 
 | Relay Number | GPIO Pin |
 |--------------|----------|
-| 1            | 21       |
-| 2            | 26       |
-| 3            | 48       |
-| 4            | 47       |
-| 5            | 33       |
-| 6            | 34       |
-| 7            | 35       |
-| 8            | 36       |
+| 1            | 36       |
+| 2            | 35       |
+| 3            | 34       |
+| 4            | 33       |
+| 5            | 47       |
+| 6            | 48       |
+| 7            | 26       |
+| 8            | 21       |
 
 You can modify these pin assignments in the `main.cpp` file if needed.
 

@@ -7,7 +7,8 @@
 #define DEBUG_MODE true
 
 // Relay pin configuration - Using digital pins that support OUTPUT mode
-const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36};
+// const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36};
+const int RELAY_PINS[8] = {36, 35, 34, 33, 47, 48, 26, 21};
 bool relayStates[8] = {false};
 unsigned long relayTimers[8] = {0};
 
