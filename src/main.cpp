@@ -22,7 +22,7 @@ uint8_t appKey[] = { 0x38, 0x6A, 0xCC, 0x7F, 0x0E, 0x22, 0xEE, 0x60, 0x7C, 0xF0,
 uint8_t nwkKey[] = { 0x38, 0x6A, 0xCC, 0x7F, 0x0E, 0x22, 0xEE, 0x60, 0x7C, 0xF0, 0xB2, 0x94, 0x66, 0xD3, 0x9C, 0xB5 }; // Network Key from TTN
 
 // Relay pin configuration - Using digital pins that support OUTPUT mode
-const int RELAY_PINS[8] = {2, 4, 5, 15, 16, 17, 18, 19}; // Changed to safer GPIO pins for ESP32-S3
+const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36}; // Changed to safer GPIO pins for ESP32-S3
 bool relayStates[8] = {false};
 unsigned long relayTimers[8] = {0};
 
@@ -66,7 +66,7 @@ void setup() {
   Serial.println("Initializing relay pins...");
   for (int i = 0; i < 8; i++) {
     pinMode(RELAY_PINS[i], OUTPUT);
-    digitalWrite(RELAY_PINS[i], LOW);
+    digitalWrite(RELAY_PINS[i], HIGH);
     delay(10);
   }
   Serial.println("Relay pins initialized.");
@@ -148,11 +148,12 @@ void loop() {
 }
 
 void processDownlink(uint8_t* payload, size_t size, uint8_t port) {
-  Serial.print("Received downlink on port ");
-  Serial.print(port);
-  Serial.print(", size: ");
-  Serial.print(size);
-  Serial.print(" bytes: ");
+  Serial.println("\n[DOWNLINK RECEIVED]");
+  Serial.print("Port: ");
+  Serial.println(port);
+  Serial.print("Size: ");
+  Serial.println(size);
+  Serial.print("Payload (HEX): ");
   
   // Print the payload in hex for debugging
   for (size_t i = 0; i < size; i++) {
@@ -162,31 +163,51 @@ void processDownlink(uint8_t* payload, size_t size, uint8_t port) {
   }
   Serial.println();
   
-  // Determine if it's a hex command or JSON command
-  if (size >= 1 && size <= 3) {
-    // Likely a hex command
-    processHexCommand(payload, size);
-  } else {
-    // Convert payload to string for JSON parsing
-    String jsonString = "";
-    for (size_t i = 0; i < size; i++) {
-      jsonString += (char)payload[i];
+  // Print as string if possible
+  Serial.print("Payload (ASCII): ");
+  for (size_t i = 0; i < size; i++) {
+    if (isprint(payload[i])) {
+      Serial.print((char)payload[i]);
+    } else {
+      Serial.print(".");
     }
-    
-    Serial.println("Parsing as JSON: " + jsonString);
-    processJsonCommand(jsonString);
   }
+  Serial.println();
+  
+  // Handle both port 1 and 2
+  if (port == 1 || port == 2) {
+    // Determine if it's a hex command or JSON command
+    if (size >= 1 && size <= 3) {
+      Serial.println("Processing as HEX command");
+      processHexCommand(payload, size);
+    } else {
+      // Convert payload to string for JSON parsing
+      String jsonString = "";
+      for (size_t i = 0; i < size; i++) {
+        jsonString += (char)payload[i];
+      }
+      
+      Serial.println("Processing as JSON command: " + jsonString);
+      processJsonCommand(jsonString);
+    }
+  } else {
+    Serial.println("Unknown port number: " + String(port));
+  }
+  Serial.println("[END DOWNLINK]\n");
+  
+  // Send a status packet to confirm the change
+  sendStatusPacket();
 }
 
 void processHexCommand(uint8_t* payload, size_t size) {
-  // Hex command format:
-  // Byte 0: Command type (0x01 = relay control)
-  // Byte 1: Relay number (0-7) in bits 0-2, state in bit 7 (0=off, 1=on)
-  // Byte 2 (optional): Duration in seconds (0-255)
-  
-  if (size < 1) return;
+  if (size < 1) {
+    Serial.println("HEX command too short");
+    return;
+  }
   
   uint8_t commandType = payload[0];
+  Serial.print("Command type: 0x");
+  Serial.println(commandType, HEX);
   
   if (commandType == 0x01 && size >= 2) {
     // Relay control command
@@ -199,7 +220,7 @@ void processHexCommand(uint8_t* payload, size_t size) {
       duration = payload[2] * 1000; // Convert to milliseconds
     }
     
-    Serial.print("HEX command: Relay ");
+    Serial.print("HEX command decoded: Relay ");
     Serial.print(relayNum + 1);
     Serial.print(" -> ");
     Serial.print(state ? "ON" : "OFF");
@@ -220,6 +241,8 @@ void processHexCommand(uint8_t* payload, size_t size) {
 }
 
 void processJsonCommand(String jsonString) {
+  Serial.println("Attempting to parse JSON: " + jsonString);
+  
   StaticJsonDocument<256> doc;
   DeserializationError error = deserializeJson(doc, jsonString);
   
@@ -230,13 +253,23 @@ void processJsonCommand(String jsonString) {
     return;
   }
   
+  Serial.println("JSON parsed successfully");
+  
   if (doc.containsKey("relay") && doc.containsKey("state")) {
     int relay = doc["relay"];
     int state = doc["state"];
     unsigned long duration = 0;
     
+    Serial.print("JSON command decoded: Relay ");
+    Serial.print(relay);
+    Serial.print(" -> ");
+    Serial.println(state ? "ON" : "OFF");
+    
     if (doc.containsKey("duration")) {
       duration = doc["duration"].as<unsigned long>() * 1000;
+      Serial.print("Duration: ");
+      Serial.print(duration / 1000);
+      Serial.println(" seconds");
     }
     
     if (relay >= 1 && relay <= 8) {
@@ -247,9 +280,11 @@ void processJsonCommand(String jsonString) {
       
       setRelay(relay - 1, state == 1, duration);
     } else {
+      Serial.println("Invalid relay number (must be 1-8)");
       lastCommand = "Invalid relay: " + String(relay);
     }
   } else {
+    Serial.println("Missing relay/state in JSON");
     lastCommand = "Missing relay/state";
   }
 }
@@ -265,7 +300,8 @@ void setRelay(uint8_t relayNum, bool state, unsigned long duration) {
       relayTimers[relayNum] = 0;
     }
     
-    digitalWrite(RELAY_PINS[relayNum], state ? HIGH : LOW);
+    // Invert the logic: HIGH (1) turns relay OFF, LOW (0) turns relay ON
+    digitalWrite(RELAY_PINS[relayNum], state ? LOW : HIGH);
     
     Serial.print("Relay ");
     Serial.print(relayNum + 1);
@@ -305,7 +341,8 @@ void sendStatusPacket() {
   
   uint8_t payload[2] = {relayStateByte, 0};
   
-  if (lora.sendData(payload, sizeof(payload), 2, false)) {
+  // Send status packet with confirmed flag to ensure delivery
+  if (lora.sendData(payload, sizeof(payload), 2, true)) {
     Serial.println("Status packet sent successfully");
     lastStatusSendTime = millis();
   } else {
@@ -337,11 +374,14 @@ void processSerialCommand(String command) {
     }
   } else if (command == "status") {
     // Show current status
-    Serial.println("Current Status:");
-    Serial.println("LoRaWAN Initialized: " + String(loraInitialized ? "Yes" : "No"));
-    Serial.println("LoRaWAN Connected: " + String(loraConnected ? "Yes" : "No"));
-    Serial.println("Relay States:");
+    Serial.println("\n=== Device Status ===");
+    Serial.println("LoRaWAN Status:");
+    Serial.println("- Initialized: " + String(loraInitialized ? "Yes" : "No"));
+    Serial.println("- Connected: " + String(loraConnected ? "Yes" : "No"));
+    Serial.println("- Last Command: " + lastCommand);
+    Serial.println("- Last Status Send: " + String((millis() - lastStatusSendTime) / 1000) + "s ago");
     
+    Serial.println("\nRelay States:");
     for (int i = 0; i < 8; i++) {
       Serial.print("Relay ");
       Serial.print(i + 1);
@@ -354,9 +394,15 @@ void processSerialCommand(String command) {
         Serial.print(remaining);
         Serial.print(" seconds)");
       }
-      
       Serial.println();
     }
+    
+    Serial.println("\nDevice Info:");
+    Serial.print("- Uptime: ");
+    Serial.print(millis() / 1000);
+    Serial.println(" seconds");
+    Serial.println("- DevEUI: " + String((uint32_t)(devEui >> 32), HEX) + String((uint32_t)devEui, HEX));
+    Serial.println("===================\n");
   } else if (command == "join") {
     // Force join attempt
     if (loraInitialized) {

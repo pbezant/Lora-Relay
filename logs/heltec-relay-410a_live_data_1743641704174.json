@@ -1,0 +1,235 @@
+[
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-03T00:54:52.456371362Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4832"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "frm_payload": "AYA=",
+      "decoded_payload": {
+        "bytes": [
+          1,
+          128
+        ],
+        "type": "command"
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQWJ9J966WCWMZEV377W46YQ",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:28ccc27c-3163-474a-abb3-5556a27f2aa3"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQWJ9J966WCWMZEV377W46YQ",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:28ccc27c-3163-474a-abb3-5556a27f2aa3"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "DCCJ7LSZII3XAMI36WXLABGNDJFDA4YOZJZ6WYA"
+    },
+    "remote_ip": "70.112.121.77",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQWJ9J986A403FC6ANRQXED8"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-03T00:54:44.968904436Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4832"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 2,
+      "frm_payload": "AYA=",
+      "decoded_payload": {
+        "bytes": [
+          1,
+          128
+        ],
+        "type": "command"
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQWJ9AZ5MQQWTRZJ1XJWAD0R",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:83c12ee9-b599-4ede-9343-ebbf85986e2b"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQWJ9AZ5MQQWTRZJ1XJWAD0R",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:83c12ee9-b599-4ede-9343-ebbf85986e2b"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "DCCJ7LSZII3XAMI36WXLABGNDJFDA4YOZJZ6WYA"
+    },
+    "remote_ip": "70.112.121.77",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQWJ9AZ8Z2692X8GDGJE9873"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-03T00:54:03.505325336Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4832"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 2,
+      "frm_payload": "eyJyZWxheSI6MSwic3RhdGUiOjF9",
+      "decoded_payload": {
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQWJ82FFC9VXTTPCZX9J082R",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:b234698b-983c-4a11-9f18-a33d9933d273"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQWJ82FFC9VXTTPCZX9J082R",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:b234698b-983c-4a11-9f18-a33d9933d273"
+    ],
+    "origin": "ip-10-22-5-255.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "DCCJ7LSZII3XAMI36WXLABGNDJFDA4YOZJZ6WYA"
+    },
+    "remote_ip": "70.112.121.77",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQWJ82FHHNDVHTXH8KP9YFGD"
+  },
+  {
+    "name": "as.down.data.receive",
+    "time": "2025-04-03T00:53:53.479835678Z",
+    "identifiers": [
+      {
+        "device_ids": {
+          "device_id": "heltec-relay-410a",
+          "application_ids": {
+            "application_id": "fms-demo-smart-office"
+          },
+          "dev_eui": "70B3D57ED800410A",
+          "join_eui": "70B3D57ED800410A",
+          "dev_addr": "27FD4832"
+        }
+      }
+    ],
+    "data": {
+      "@type": "type.googleapis.com/ttn.lorawan.v3.ApplicationDownlink",
+      "f_port": 1,
+      "frm_payload": "eyJyZWxheSI6MSwic3RhdGUiOjF9",
+      "decoded_payload": {
+        "relay": 1,
+        "state": 1
+      },
+      "confirmed": true,
+      "correlation_ids": [
+        "as:downlink:01JQWJ7RP5XT5R6VR1VQ6D2RY6",
+        "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:125f9f27-3a6e-4c14-b772-497e0e777875"
+      ],
+      "confirmed_retry": {
+        "attempt": 1
+      }
+    },
+    "correlation_ids": [
+      "as:downlink:01JQWJ7RP5XT5R6VR1VQ6D2RY6",
+      "rpc:/ttn.lorawan.v3.AppAs/DownlinkQueueReplace:125f9f27-3a6e-4c14-b772-497e0e777875"
+    ],
+    "origin": "ip-10-22-13-98.us-west-1.compute.internal",
+    "context": {
+      "tenant-id": "CgtmbXNpb3RjbG91ZA=="
+    },
+    "visibility": {
+      "rights": [
+        "RIGHT_APPLICATION_TRAFFIC_READ"
+      ]
+    },
+    "authentication": {
+      "type": "Bearer",
+      "token_type": "AccessToken",
+      "token_id": "DCCJ7LSZII3XAMI36WXLABGNDJFDA4YOZJZ6WYA"
+    },
+    "remote_ip": "70.112.121.77",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36",
+    "unique_id": "01JQWJ7RP7W7J14EC0CKFA3MAR"
+  },
+  {
+    "time": "2025-04-03T00:53:44.490Z",
+    "name": "synthetic.status.cleared",
+    "isError": false,
+    "isSynthetic": true,
+    "unique_id": "synthetic.1743641624490"
+  }
+]

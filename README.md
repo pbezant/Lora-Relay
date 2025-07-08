@@ -193,44 +193,125 @@ Turn ON relay #7 for 24 hours:
 Add this payload formatter in the TTN console to encode your downlink messages:
 
 ```javascript
+// Encoder function for downlinks
 function encodeDownlink(input) {
-  var jsonString = JSON.stringify(input.data);
-  var bytes = [];
-  
-  for (var i = 0; i < jsonString.length; i++) {
-    bytes.push(jsonString.charCodeAt(i));
+  // Check if input is a JSON object
+  if (typeof input.data === 'object') {
+    // Convert JSON to string and then to bytes
+    const jsonString = JSON.stringify(input.data);
+    const bytes = [];
+    for (let i = 0; i < jsonString.length; i++) {
+      bytes.push(jsonString.charCodeAt(i));
+    }
+    return {
+      bytes: bytes,
+      fPort: input.fPort || 1
+    };
+  } 
+  // If input.data is already an array of bytes, use it directly
+  else if (Array.isArray(input.data)) {
+    return {
+      bytes: input.data,
+      fPort: input.fPort || 1
+    };
   }
-  
+  // If it's a string but not JSON
+  else if (typeof input.data === 'string') {
+    // Convert string to bytes
+    const bytes = [];
+    for (let i = 0; i < input.data.length; i++) {
+      bytes.push(input.data.charCodeAt(i));
+    }
+    return {
+      bytes: bytes,
+      fPort: input.fPort || 1
+    };
+  }
+  // Default empty response
   return {
-    bytes: bytes,
-    fPort: 1
+    bytes: [],
+    fPort: input.fPort || 1
   };
 }
 
-function decodeUplink(input) {
-  // Decode uplink messages (status packets)
-  if (input.fPort === 2) {
-    var relayStates = input.bytes[0];
-    var relays = {};
-    
-    for (var i = 0; i < 8; i++) {
-      relays["relay" + (i+1)] = ((relayStates >> i) & 1) === 1;
-    }
-    
+// Decoder function for downlinks
+function decodeDownlink(input) {
+  // If there are less than 4 bytes, it's likely a command
+  if (input.bytes.length < 4) {
     return {
       data: {
-        relayStates: relays
+        bytes: input.bytes,
+        type: "command"
       },
       warnings: [],
       errors: []
     };
   }
   
-  return {
-    data: {},
-    warnings: ["Unknown fPort"],
-    errors: []
-  };
+  // Try to parse as JSON
+  try {
+    // Convert bytes to string
+    let str = "";
+    for (let i = 0; i < input.bytes.length; i++) {
+      str += String.fromCharCode(input.bytes[i]);
+    }
+    
+    // Parse as JSON
+    const data = JSON.parse(str);
+    
+    return {
+      data: data,
+      warnings: [],
+      errors: []
+    };
+  } catch (err) {
+    // If parsing fails, return raw bytes
+    return {
+      data: {
+        bytes: input.bytes,
+        type: "binary"
+      },
+      warnings: [`Failed to parse as JSON: ${err.message}`],
+      errors: []
+    };
+  }
+}
+
+// Decoder function for uplinks
+function decodeUplink(input) {
+  // Convert bytes to hex string
+  let hexStr = "";
+  for (let i = 0; i < input.bytes.length; i++) {
+    const hex = input.bytes[i].toString(16).padStart(2, '0');
+    hexStr += hex;
+  }
+  
+  // Try to parse as JSON first
+  try {
+    // Convert bytes to string
+    let str = "";
+    for (let i = 0; i < input.bytes.length; i++) {
+      str += String.fromCharCode(input.bytes[i]);
+    }
+    
+    // Try parsing as JSON
+    const data = JSON.parse(str);
+    
+    return {
+      data: data,
+      warnings: [],
+      errors: []
+    };
+  } catch (err) {
+    // If JSON parsing fails, return the hex string
+    return {
+      data: {
+        hex: hexStr
+      },
+      warnings: [],
+      errors: []
+    };
+  }
 }
 ```
 
