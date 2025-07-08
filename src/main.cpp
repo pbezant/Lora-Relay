@@ -1,13 +1,17 @@
 #include <Arduino.h>
 #include <LoRaManager.h>
 #include <ArduinoJson.h>
-#include "secrets.h"
 
 // Debug mode
 #define DEBUG_MODE true
 
+// LoRaWAN credentials - Replace with your values from TTN
+const char* devEui = "70B3D57ED800410A"; // Device EUI as hex string
+const char* appEui = "70B3D57ED800410A"; // Application EUI as hex string  
+const char* appKey = "386ACC7F0E22EE607CF0B29466D39CB5"; // App Key as hex string
+
 // Relay pin configuration - Using digital pins that support OUTPUT mode
-const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36};
+const int RELAY_PINS[8] = {36, 35, 34, 33, 47, 48, 26, 21};
 bool relayStates[8] = {false};
 unsigned long relayTimers[8] = {0};
 

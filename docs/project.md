@@ -13,7 +13,7 @@
 #### Hardware
 - **MCU**: ESP32S3 (dual-core, 240MHz, WiFi/Bluetooth)
 - **LoRa Radio**: SX1262 (sub-GHz transceiver)
-- **GPIO**: 8 relay control pins (21, 26, 48, 47, 33, 34, 35, 36)
+- **GPIO**: 8 relay control pins (36, 35, 34, 33, 47, 48, 26, 21)
 - **Interfaces**: USB (programming/debugging), UART (serial commands)
 
 #### Software Libraries

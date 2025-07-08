@@ -141,8 +141,7 @@ void processJsonCommand(String jsonString) {
 #define LORA_BUSY   13  // Busy status
 
 // Relay Control Interface (application managed)
-const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36};
-
+const int RELAY_PINS[8] = {36, 35, 34, 33, 47, 48, 26, 21};
 // Control Logic: LOW = Relay ON, HIGH = Relay OFF (inverted)
 ```
 
