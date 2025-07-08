@@ -2,6 +2,20 @@
 
 This project implements a LoRaWAN Class C relay controller using a Heltec WiFi LoRa 32 V3 board. It allows remote control of up to 8 relays via The Things Network (TTN) downlink messages using JSON commands.
 
+**Built with LoraManager2** - This implementation uses the advanced LoraManager2 library for TRUE Class C operation with continuous receive windows, providing low-latency remote control capabilities.
+
+## Key Features
+
+- ✅ **TRUE Class C Operation** - Continuous receive windows for instant downlink processing
+- ✅ **8-Channel Relay Control** - Individual control with timer support for automated shutoff
+- ✅ **Flexible JSON Commands** - Supports both numeric and string state values
+- ✅ **Enhanced Serial Interface** - Comprehensive status reporting and test commands
+- ✅ **Signal Quality Monitoring** - RSSI and SNR reporting for received downlinks
+- ✅ **Event-Driven Architecture** - Separate callbacks for different LoRaWAN events
+- ✅ **Memory Optimized** - Efficient resource usage (8.3% RAM, 12.2% Flash)
+- ✅ **TTN Compatible** - Full compatibility with The Things Network
+- ✅ **Debug Friendly** - Extensive serial output for troubleshooting
+
 > **Note:** The current implementation has temporarily disabled the OLED display functionality to focus on the core relay control and LoRaWAN connectivity. Serial output provides status information instead.
 
 ## Hardware Requirements
@@ -30,16 +44,33 @@ You can modify these pin assignments in the `main.cpp` file if needed.
 
 ## LoRaWAN Configuration
 
-Before using this code, you must configure your LoRaWAN credentials in the `main.cpp` file:
+Before using this code, you must configure your LoRaWAN credentials using the secrets system:
 
-```cpp
-// LoRaWAN credentials - Replace with your values from TTN
-uint8_t devEui[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-uint8_t appEui[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-uint8_t appKey[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
-```
+### Setting up Credentials
 
-These values must be entered in MSB (Most Significant Byte) format, exactly as they appear in the TTN console.
+1. **Copy the example file:**
+   ```bash
+   cp include/secrets.h.example include/secrets.h
+   ```
+
+2. **Edit the secrets file:**
+   Open `include/secrets.h` and replace the placeholder values with your actual TTN credentials:
+   ```cpp
+   // LoRaWAN credentials - Replace with your values from TTN
+   const char* devEui = "YOUR_DEVICE_EUI";     // Device EUI as hex string
+   const char* appEui = "YOUR_APPLICATION_EUI"; // Application EUI as hex string  
+   const char* appKey = "YOUR_APP_KEY";         // App Key as hex string
+   ```
+
+3. **Get your credentials from TTN:**
+   - Log into [The Things Network Console](https://console.cloud.thethings.network/)
+   - Go to your application and device
+   - Copy the Device EUI, Application EUI, and App Key exactly as shown
+   - Paste them as hex strings (no spaces, no 0x prefix)
+
+These values must be entered as hex strings in MSB (Most Significant Byte) format, exactly as they appear in the TTN console.
+
+> **Security Note:** The `secrets.h` file is automatically ignored by git to prevent accidental commits of your real credentials. Never commit real network keys to version control!
 
 ## TTN Setup
 
@@ -50,12 +81,16 @@ These values must be entered in MSB (Most Significant Byte) format, exactly as t
 5. Copy the Device EUI, Application EUI, and App Key to the corresponding variables in the code
 6. Configure your device for Class C operation in the TTN console
 
-## Class C Operation
+## TRUE Class C Operation
 
-This device operates as a LoRaWAN Class C device, which means:
-- It can receive downlink messages at any time (not just after sending an uplink)
-- It consumes more power than Class A devices due to continuous receive windows
-- It's ideal for applications requiring low-latency remote control
+This device operates as a **TRUE Class C** LoRaWAN device using LoraManager2, which provides:
+- **Continuous receive windows** - Can receive downlink messages at any time (not just after sending an uplink)
+- **Low-latency control** - Near-instant response to TTN downlink commands
+- **Enhanced reliability** - Better downlink reception with automatic retry handling
+- **Signal quality reporting** - RSSI and SNR information for received downlinks
+- **Event-driven architecture** - Separate callbacks for join, downlink, and transmission events
+
+> **Power Consumption:** Class C operation consumes more power than Class A devices due to continuous receive windows, but provides the best user experience for remote control applications.
 
 ## Building and Uploading
 
@@ -83,8 +118,10 @@ If you prefer using Arduino IDE:
 1. Install [Arduino IDE](https://www.arduino.cc/en/software)
 2. Add ESP32 board support via Boards Manager
 3. Install the required libraries:
+   - LoraManager2 (from https://github.com/pbezant/LoraManager2.git)
+   - beegee-tokyo/SX126x-Arduino@^2.0.0
+   - ArduinoJson by Benoit Blanchon (v7.0.0+)
    - RadioLib by Jan Gromeš
-   - ArduinoJson by Benoit Blanchon
    - Heltec ESP32 Dev-Boards by Heltec Automation
 4. Open the `src/main.cpp` file (rename to .ino if needed)
 5. Select the correct board: "Heltec WiFi LoRa 32(V3)"
@@ -107,7 +144,7 @@ Relays can be controlled via TTN downlink messages using a JSON format:
 ```
 
 - `relay`: The relay number (1-8)
-- `state`: 1 for ON, 0 for OFF
+- `state`: 1 for ON, 0 for OFF (also supports "on"/"off", "true"/"false" strings)
 - `duration`: (Optional) Duration in seconds to keep the relay ON
 
 ### JSON Downlink Examples
@@ -129,6 +166,14 @@ Turn OFF relay #1:
 {
   "relay": 1,
   "state": 0
+}
+```
+
+Turn ON relay #1 (using string state):
+```json
+{
+  "relay": 1,
+  "state": "on"
 }
 ```
 
@@ -328,8 +373,15 @@ You can also control the relays via the serial port for testing:
 
 - `relay,<number>,<state>[,<duration>]` - Control a relay
   - Example: `relay,1,1,10` turns relay 1 ON for 10 seconds
-- `status` - Show the current state of all relays and LoRaWAN connection
-- `send` - Force send a status packet
+- `status` - Show comprehensive device status including:
+  - LoRaWAN initialization and join status
+  - Current device class and EUI information
+  - All relay states and timers
+  - Last command received
+  - Device uptime
+- `send` - Force send a status packet to TTN
+- `test_json` - Run JSON command processing test
+- `test_hex` - Run HEX command processing test
 
 ## JSON Command Examples
 
@@ -361,6 +413,14 @@ Turn ON relay #2 for 10 minutes (600 seconds):
   "relay": 2,
   "state": 1,
   "duration": 600
+}
+```
+Turn ON relay #2 for 10 minutes (600 seconds):
+```json
+{
+  "relay": 2,
+  "state": "on",
+  "duration": 5
 }
 ```
 
@@ -423,11 +483,40 @@ The device will output detailed debug information including:
 - Relay and state values
 - Duration (if specified)
 
-## Uplink Data Format
+## Technical Specifications
+
+### Library Stack
+- **LoraManager2**: Advanced LoRaWAN library with TRUE Class C support
+- **SX126x-Arduino**: Hardware abstraction for SX126x LoRa chips
+- **ArduinoJson v7**: Enhanced JSON processing with flexible state handling
+- **RadioLib**: Core radio communication functionality
+
+### LoRaWAN Configuration
+- **Device Class**: TRUE Class C with continuous receive windows
+- **Region**: US915 (configurable)
+- **Sub-band**: 2 (channels 8-15)
+- **Data Rate**: DR_3
+- **TX Power**: 14 dBm
+- **ADR**: Disabled for consistent performance
+- **Public Network**: Enabled for TTN compatibility
+
+### Memory Usage
+- **RAM**: ~8.3% (27KB used)
+- **Flash**: ~12.2% (407KB used)
+- **Optimized**: For embedded deployment
+
+### Uplink Data Format
 
 The device sends status packets periodically (every 5 minutes by default) with the following format:
 - Byte 0: Bit field of relay states (bit 0 = relay 1, bit 1 = relay 2, etc.)
-- Bytes 1-7: Reserved for future use
+- Byte 1: Reserved for future use
+
+### Event Callbacks
+- **onJoined()**: Successful network join
+- **onJoinFailed()**: Join attempt failed
+- **onDownlink()**: Downlink received with RSSI/SNR data
+- **onClassChanged()**: Device class change notification
+- **onTxComplete()**: Transmission completion status
 
 ## Troubleshooting
 
@@ -445,11 +534,13 @@ If you have trouble uploading:
 
 If the device fails to join the network:
 
-1. Verify your EUI and key values are correct and in MSB format
+1. Verify your EUI and key values are correct and in hex string format
 2. Check that your device is configured correctly in TTN
 3. Ensure you're within range of a LoRaWAN gateway
 4. Try moving the device closer to a window or higher location
-5. Verify that your region is set correctly in the code (EU868 is the default)
+5. Verify that your region is set correctly in the code (US915 with sub-band 2 is the default)
+6. Use the `status` serial command to check join attempts and device state
+7. Monitor serial output for detailed join process information
 
 ### Relay Control Issues
 
