@@ -363,6 +363,14 @@ Turn ON relay #2 for 10 minutes (600 seconds):
   "duration": 600
 }
 ```
+Turn ON relay #2 for 10 minutes (600 seconds):
+```json
+{
+  "relay": 2,
+  "state": "on",
+  "duration": 5
+}
+```
 
 Turn ON relay #3 for 1 hour (3600 seconds):
 ```json

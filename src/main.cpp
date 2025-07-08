@@ -5,46 +5,38 @@
 // Debug mode
 #define DEBUG_MODE true
 
-// LoRa pins for HELTEC WiFi LoRa 32 V3
-#define LORA_CS   8     // NSS pin
-#define LORA_DIO1 14    // DIO1 pin
-#define LORA_RST  12    // RESET pin
-#define LORA_BUSY 13    // BUSY pin
-
-// Define the frequency band and subband (1-8)
-#define LORAWAN_FREQUENCY_BAND US915
-#define LORAWAN_SUBBAND 2  // Subband 2 (channels 8-15)
-
 // LoRaWAN credentials - Replace with your values from TTN
-uint64_t appEui = 0x70B3D57ED800410A; // Join EUI (AppEUI) from TTN
-uint64_t devEui = 0x70B3D57ED800410A;  // Device EUI from TTN
-uint8_t appKey[] = { 0x38, 0x6A, 0xCC, 0x7F, 0x0E, 0x22, 0xEE, 0x60, 0x7C, 0xF0, 0xB2, 0x94, 0x66, 0xD3, 0x9C, 0xB5 }; // App Key from TTN
-uint8_t nwkKey[] = { 0x38, 0x6A, 0xCC, 0x7F, 0x0E, 0x22, 0xEE, 0x60, 0x7C, 0xF0, 0xB2, 0x94, 0x66, 0xD3, 0x9C, 0xB5 }; // Network Key from TTN
+const char* devEui = "70B3D57ED800410A"; // Device EUI as hex string
+const char* appEui = "70B3D57ED800410A"; // Application EUI as hex string  
+const char* appKey = "386ACC7F0E22EE607CF0B29466D39CB5"; // App Key as hex string
 
 // Relay pin configuration - Using digital pins that support OUTPUT mode
-const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36}; // Changed to safer GPIO pins for ESP32-S3
+const int RELAY_PINS[8] = {21, 26, 48, 47, 33, 34, 35, 36};
 bool relayStates[8] = {false};
 unsigned long relayTimers[8] = {0};
 
-// Create LoRaManager instance
-LoRaManager lora(LORAWAN_FREQUENCY_BAND, LORAWAN_SUBBAND);
+// Create LoraManager instance
+LoraManager lora;
 
 // Status variables
 bool loraInitialized = false;
-bool loraConnected = false;
+bool loraJoined = false;
 String lastCommand = "None";
 unsigned long lastStatusSendTime = 0;
 const unsigned long STATUS_SEND_INTERVAL = 300000; // 5 minutes
-unsigned long lastJoinAttempt = 0;
 
 // Function prototypes
-void processDownlink(uint8_t* payload, size_t size, uint8_t port);
+void onJoined();
+void onJoinFailed();
+void onDownlink(const uint8_t* data, size_t size, int rssi, int snr);
+void onClassChanged(uint8_t deviceClass);
+void onTxComplete(bool success);
 void setRelay(uint8_t relayNum, bool state, unsigned long duration = 0);
 void checkRelayTimers();
 void sendStatusPacket();
 void processSerialCommand(String command);
 void processJsonCommand(String jsonString);
-void processHexCommand(uint8_t* payload, size_t size);
+void processHexCommand(const uint8_t* payload, size_t size);
 void debugPrint(String message);
 
 // Debug print helper
@@ -59,46 +51,54 @@ void setup() {
   Serial.begin(115200);
   delay(100);
 
-  Serial.println("\n\nLoRaWAN Class C Relay Controller");
-  Serial.println("================================");
+  Serial.println("\n\nLoRaWAN Class C Relay Controller (LoraManager2)");
+  Serial.println("================================================");
   
   // Initialize relay pins
   Serial.println("Initializing relay pins...");
   for (int i = 0; i < 8; i++) {
     pinMode(RELAY_PINS[i], OUTPUT);
-    digitalWrite(RELAY_PINS[i], HIGH);
+    digitalWrite(RELAY_PINS[i], HIGH); // Initial state OFF (inverted logic)
     delay(10);
   }
   Serial.println("Relay pins initialized.");
   
   delay(100);
   
-  // Initialize LoRa with simplified approach
-  Serial.println("Initializing LoRa module...");
+  // Initialize LoRa with LoraManager2
+  Serial.println("Initializing LoRa module with LoraManager2...");
   
-  // Set up SPI pins
-  SPI.begin(); // Initialize SPI first
+  // Configure LoRaWAN settings
+  LoraConfig config;
+  config.devEui = devEui;
+  config.appEui = appEui;
+  config.appKey = appKey;
+  config.region = US915;
+  config.deviceClass = LORA_CLASS_C;  // TRUE Class C operation
+  config.subBand = 2;                 // Subband 2 (channels 8-15)
+  config.adrEnabled = false;
+  config.dataRate = 3;                // DR_3
+  config.txPower = 14;                // 14 dBm
+  config.joinTrials = 5;
+  config.publicNetwork = true;
   
-  // Reset sequence for the LoRa module
-  pinMode(LORA_RST, OUTPUT);
-  digitalWrite(LORA_RST, LOW);
-  delay(10);
-  digitalWrite(LORA_RST, HIGH);
-  delay(100);
+  // Hardware configuration (uses Heltec V3 defaults)
+  HardwareConfig hwConfig;
   
-  // Try to initialize
-  if (lora.begin(LORA_CS, LORA_DIO1, LORA_RST, LORA_BUSY)) {
-    Serial.println("LoRa module initialized successfully!");
+  // Register event callbacks
+  lora.onJoined(onJoined);
+  lora.onJoinFailed(onJoinFailed);
+  lora.onDownlink(onDownlink);
+  lora.onClassChanged(onClassChanged);
+  lora.onTxComplete(onTxComplete);
+  
+  // Initialize LoraManager2
+  if (lora.begin(config, hwConfig)) {
+    Serial.println("LoraManager2 initialized successfully!");
+    Serial.println("Configured for TRUE Class C operation");
     loraInitialized = true;
-    
-    // Set credentials
-    lora.setCredentials(appEui, devEui, appKey, nwkKey);
-    lora.setDownlinkCallback(processDownlink);
-    
-    // Don't try joining here - do it in the loop
-    Serial.println("LoRa setup complete. Will attempt joining in main loop.");
   } else {
-    Serial.println("Failed to initialize LoRa module.");
+    Serial.println("Failed to initialize LoraManager2.");
   }
   
   Serial.println("Setup complete - entering main loop.");
@@ -114,28 +114,15 @@ void loop() {
   
   // Handle LoRa operations if initialized
   if (loraInitialized) {
-    // Process any LoRa events
-    lora.handleEvents();
+    // Process LoRa events (this handles join attempts, receive windows, etc.)
+    lora.loop();
     
-    // Join if not connected (check only every 2 minutes)
-    unsigned long currentTime = millis();
-    if (!loraConnected && (currentTime - lastJoinAttempt > 120000 || lastJoinAttempt == 0)) {
-      Serial.println("Attempting to join LoRaWAN network...");
-      
-      if (lora.joinNetwork()) {
-        Serial.println("Successfully joined the network!");
-        loraConnected = true;
+    // Send periodic status if joined
+    if (loraJoined) {
+      unsigned long currentTime = millis();
+      if (currentTime - lastStatusSendTime >= STATUS_SEND_INTERVAL) {
         sendStatusPacket();
-      } else {
-        Serial.println("Failed to join network. Will retry later.");
       }
-      
-      lastJoinAttempt = currentTime;
-    }
-    
-    // Send periodic status if connected
-    if (loraConnected && (currentTime - lastStatusSendTime >= STATUS_SEND_INTERVAL)) {
-      sendStatusPacket();
     }
   }
   
@@ -147,18 +134,35 @@ void loop() {
   yield();
 }
 
-void processDownlink(uint8_t* payload, size_t size, uint8_t port) {
+// LoraManager2 event callbacks
+void onJoined() {
+  Serial.println("Successfully joined the LoRaWAN network!");
+  loraJoined = true;
+  
+  // Send initial status packet
+  sendStatusPacket();
+}
+
+void onJoinFailed() {
+  Serial.println("Failed to join LoRaWAN network. Will retry automatically.");
+  loraJoined = false;
+}
+
+void onDownlink(const uint8_t* data, size_t size, int rssi, int snr) {
   Serial.println("\n[DOWNLINK RECEIVED]");
-  Serial.print("Port: ");
-  Serial.println(port);
   Serial.print("Size: ");
   Serial.println(size);
+  Serial.print("RSSI: ");
+  Serial.print(rssi);
+  Serial.print(" dBm, SNR: ");
+  Serial.print(snr);
+  Serial.println(" dB");
   Serial.print("Payload (HEX): ");
   
   // Print the payload in hex for debugging
   for (size_t i = 0; i < size; i++) {
-    if (payload[i] < 16) Serial.print("0");
-    Serial.print(payload[i], HEX);
+    if (data[i] < 16) Serial.print("0");
+    Serial.print(data[i], HEX);
     Serial.print(" ");
   }
   Serial.println();
@@ -166,40 +170,63 @@ void processDownlink(uint8_t* payload, size_t size, uint8_t port) {
   // Print as string if possible
   Serial.print("Payload (ASCII): ");
   for (size_t i = 0; i < size; i++) {
-    if (isprint(payload[i])) {
-      Serial.print((char)payload[i]);
+    if (isprint(data[i])) {
+      Serial.print((char)data[i]);
     } else {
       Serial.print(".");
     }
   }
   Serial.println();
   
-  // Handle both port 1 and 2
-  if (port == 1 || port == 2) {
-    // Determine if it's a hex command or JSON command
-    if (size >= 1 && size <= 3) {
-      Serial.println("Processing as HEX command");
-      processHexCommand(payload, size);
-    } else {
-      // Convert payload to string for JSON parsing
-      String jsonString = "";
-      for (size_t i = 0; i < size; i++) {
-        jsonString += (char)payload[i];
-      }
-      
-      Serial.println("Processing as JSON command: " + jsonString);
-      processJsonCommand(jsonString);
-    }
+  // Determine if it's a hex command or JSON command
+  if (size >= 1 && size <= 3) {
+    Serial.println("Processing as HEX command");
+    processHexCommand(data, size);
   } else {
-    Serial.println("Unknown port number: " + String(port));
+    // Convert payload to string for JSON parsing
+    String jsonString = "";
+    for (size_t i = 0; i < size; i++) {
+      jsonString += (char)data[i];
+    }
+    
+    Serial.println("Processing as JSON command: " + jsonString);
+    processJsonCommand(jsonString);
   }
+  
   Serial.println("[END DOWNLINK]\n");
   
   // Send a status packet to confirm the change
   sendStatusPacket();
 }
 
-void processHexCommand(uint8_t* payload, size_t size) {
+void onClassChanged(uint8_t deviceClass) {
+  Serial.print("Device class changed to: ");
+  switch(deviceClass) {
+    case LORA_CLASS_A:
+      Serial.println("Class A");
+      break;
+    case LORA_CLASS_B:
+      Serial.println("Class B");
+      break;
+    case LORA_CLASS_C:
+      Serial.println("Class C (continuous receive)");
+      break;
+    default:
+      Serial.println("Unknown");
+      break;
+  }
+}
+
+void onTxComplete(bool success) {
+  if (success) {
+    debugPrint("Transmission completed successfully");
+    lastStatusSendTime = millis();
+  } else {
+    debugPrint("Transmission failed");
+  }
+}
+
+void processHexCommand(const uint8_t* payload, size_t size) {
   if (size < 1) {
     Serial.println("HEX command too short");
     return;
@@ -243,7 +270,7 @@ void processHexCommand(uint8_t* payload, size_t size) {
 void processJsonCommand(String jsonString) {
   Serial.println("Attempting to parse JSON: " + jsonString);
   
-  StaticJsonDocument<256> doc;
+  JsonDocument doc;
   DeserializationError error = deserializeJson(doc, jsonString);
   
   if (error) {
@@ -257,7 +284,17 @@ void processJsonCommand(String jsonString) {
   
   if (doc.containsKey("relay") && doc.containsKey("state")) {
     int relay = doc["relay"];
-    int state = doc["state"];
+    
+    // Handle both numeric and string state values
+    bool state = false;
+    if (doc["state"].is<int>()) {
+      state = doc["state"].as<int>() == 1;
+    } else if (doc["state"].is<String>()) {
+      String stateStr = doc["state"].as<String>();
+      stateStr.toLowerCase();
+      state = (stateStr == "on" || stateStr == "1" || stateStr == "true");
+    }
+    
     unsigned long duration = 0;
     
     Serial.print("JSON command decoded: Relay ");
@@ -273,12 +310,12 @@ void processJsonCommand(String jsonString) {
     }
     
     if (relay >= 1 && relay <= 8) {
-      lastCommand = "Relay:" + String(relay) + " State:" + String(state);
+      lastCommand = "Relay:" + String(relay) + " State:" + String(state ? "ON" : "OFF");
       if (duration > 0) {
         lastCommand += " Duration:" + String(duration / 1000) + "s";
       }
       
-      setRelay(relay - 1, state == 1, duration);
+      setRelay(relay - 1, state, duration);
     } else {
       Serial.println("Invalid relay number (must be 1-8)");
       lastCommand = "Invalid relay: " + String(relay);
@@ -327,7 +364,7 @@ void checkRelayTimers() {
 }
 
 void sendStatusPacket() {
-  if (!loraInitialized || !loraConnected) {
+  if (!loraInitialized || !loraJoined) {
     debugPrint("Cannot send status: LoRaWAN not ready");
     return;
   }
@@ -342,9 +379,8 @@ void sendStatusPacket() {
   uint8_t payload[2] = {relayStateByte, 0};
   
   // Send status packet with confirmed flag to ensure delivery
-  if (lora.sendData(payload, sizeof(payload), 2, true)) {
+  if (lora.sendConfirmed(payload, sizeof(payload), 2)) {
     Serial.println("Status packet sent successfully");
-    lastStatusSendTime = millis();
   } else {
     Serial.println("Failed to send status packet");
   }
@@ -377,7 +413,10 @@ void processSerialCommand(String command) {
     Serial.println("\n=== Device Status ===");
     Serial.println("LoRaWAN Status:");
     Serial.println("- Initialized: " + String(loraInitialized ? "Yes" : "No"));
-    Serial.println("- Connected: " + String(loraConnected ? "Yes" : "No"));
+    Serial.println("- Joined: " + String(loraJoined ? "Yes" : "No"));
+    Serial.println("- Device Class: " + String(lora.getCurrentClass()));
+    Serial.println("- Device EUI: " + lora.getDeviceEUI());
+    Serial.println("- App EUI: " + lora.getAppEUI());
     Serial.println("- Last Command: " + lastCommand);
     Serial.println("- Last Status Send: " + String((millis() - lastStatusSendTime) / 1000) + "s ago");
     
@@ -401,24 +440,10 @@ void processSerialCommand(String command) {
     Serial.print("- Uptime: ");
     Serial.print(millis() / 1000);
     Serial.println(" seconds");
-    Serial.println("- DevEUI: " + String((uint32_t)(devEui >> 32), HEX) + String((uint32_t)devEui, HEX));
     Serial.println("===================\n");
-  } else if (command == "join") {
-    // Force join attempt
-    if (loraInitialized) {
-      Serial.println("Attempting to join LoRaWAN network...");
-      
-      if (lora.joinNetwork()) {
-        loraConnected = true;
-        Serial.println("Successfully joined the network!");
-      } else {
-        Serial.println("Failed to join network.");
-      }
-      
-      lastJoinAttempt = millis();
-    } else {
-      Serial.println("Cannot join: LoRaWAN not initialized");
-    }
+  } else if (command == "send") {
+    // Force send a status packet
+    sendStatusPacket();
   } else if (command == "test_json") {
     // Test JSON command processing
     Serial.println("Running JSON command test...");
@@ -447,17 +472,12 @@ void processSerialCommand(String command) {
     uint8_t hexCmd2[] = {0x01, 0x00};  // Command 0x01, Relay 0, OFF
     Serial.println("Test command: 01 00");
     processHexCommand(hexCmd2, 2);
-  } else if (command == "reset") {
-    Serial.println("Resetting device...");
-    delay(500);
-    ESP.restart();
   } else {
-    Serial.println("Available commands:");
-    Serial.println("  relay,<number>,<state>[,<duration>] - Control relay");
-    Serial.println("  status - Show current status");
-    Serial.println("  join - Force join attempt");
-    Serial.println("  test_json - Run test JSON commands");
-    Serial.println("  test_hex - Run test HEX commands");
-    Serial.println("  reset - Reset the device");
+    Serial.println("Unknown command. Available commands:");
+    Serial.println("- relay,<number>,<state>[,<duration>] - Control a relay");
+    Serial.println("- status - Show current status");
+    Serial.println("- send - Force send status packet");
+    Serial.println("- test_json - Test JSON command processing");
+    Serial.println("- test_hex - Test HEX command processing");
   }
 }
