@@ -429,10 +429,10 @@ void processBinaryMultiRelayCommand(const uint8_t* data, size_t size) {
     uint8_t durationHigh = data[offset + 3];
     uint16_t duration = durationLow + (durationHigh << 8);
     
-    if (relayNum >= 1 && relayNum <= 8) {
-      Serial.println("Binary relay " + String(relayNum) + " -> " + (state ? "ON" : "OFF") + 
+    if (relayNum >= 0 && relayNum <= 7) {
+      Serial.println("Binary relay " + String(relayNum + 1) + " -> " + (state ? "ON" : "OFF") + 
                      (duration > 0 ? " for " + String(duration) + " seconds" : ""));
-      setRelay(relayNum, state == 1, duration * 1000);
+      setRelay(relayNum, state == 1, duration * 1000);  // Use 0-based indexing directly
     } else {
       Serial.println("Error: Invalid relay number " + String(relayNum));
     }

@@ -324,7 +324,7 @@ function encodeRelayCommand(data) {
     
     // Encode each relay (4 bytes per relay)
     for (const relay of relays) {
-      bytes.push(relay.relay || 0);           // Relay number (1-8)
+      bytes.push((relay.relay || 1) - 1);     // Convert 1-based to 0-based indexing (1-8 → 0-7)
       bytes.push(relay.state ? 1 : 0);        // State (0/1)
       
       const duration = relay.duration || 0;
