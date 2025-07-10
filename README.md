@@ -190,6 +190,21 @@ Relays can be controlled via TTN downlink messages using a JSON format:
   ]
 }
 ```
+#### Example: Turn ON relays 1 through 8
+```json
+{
+  "relays": [
+    {"relay": 1, "state": 1, "duration": 3},
+    {"relay": 2, "state": 1, "duration": 4},
+    {"relay": 3, "state": 1, "duration": 5},
+    {"relay": 4, "state": 1, "duration": 6},
+    {"relay": 5, "state": 1, "duration": 7},
+    {"relay": 6, "state": 1, "duration": 8},
+    {"relay": 7, "state": 1, "duration": 9},
+    {"relay": 8, "state": 1, "duration": 10}
+  ]
+}
+```
 
 ### JSON Downlink Examples
 
